@@ -9,16 +9,16 @@ import pandas as pd
 
 data_file = 'data.csv'
 
-dataframe = pd.read_csv(data_file,sep=',')
+dataframe = pd.read_csv(data_file,sep= ',')
 
-start_hist = dataframe.hist(column='x_start', bins=50)
+start_hist = dataframe.hist(column = 'x_start', bins = 50)
 graph = plot.savefig('x_start_histogram.jpg')
-start_hist = dataframe.hist(column='y_start', bins=100, orientation='horizontal')
+start_hist = dataframe.hist(column = 'y_start', bins = 100, orientation = 'horizontal')
 graph = plot.savefig('y_start_histogram.jpg')
 
-stop_hist = dataframe.hist(column='x_stop', bins=50)
+stop_hist = dataframe.hist(column = 'x_stop', bins = 50)
 graph = plot.savefig('x_stop_histogram.jpg')
-stop_hist = dataframe.hist(column='y_stop', bins=100, orientation='horizontal')
+stop_hist = dataframe.hist(column = 'y_stop', bins = 100, orientation = 'horizontal')
 graph = plot.savefig('y_stop_histogram.jpg')
 
 for i, row in dataframe.iterrows():
@@ -62,6 +62,6 @@ for i, row in dataframe.iterrows():
                         #     temp_association = str(current_id) 
                         # temp_row[14] = temp_association
                         
-dataframe.to_csv('structure.csv', index=False)
+dataframe.to_csv('structure.csv', index = False)
 
 

@@ -5,7 +5,7 @@ import pandas as pd
 
 data_file = 'structure.csv'
 
-dataframe = pd.read_csv(data_file,sep=',')
+dataframe = pd.read_csv(data_file,sep = ',')
 
 
 #This section will only leave sections which contain requirements or are referenced by requirement statements
@@ -14,3 +14,6 @@ requirement_dataframe = dataframe.loc[(dataframe['logical_shall'] == True) | (da
 
 
 requirement_dataframe.to_csv('parsed_requirements.csv', index=False)
+
+req_matches = []
+

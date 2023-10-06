@@ -127,7 +127,7 @@ for page in PDFPage.get_pages(source_document):
                 
                 data_entry = [id_num, page_id, class_name, coords0, coords1, coords2, coords3, logical_shall, logical_should, parent_of, sibling_of, child_of, reference_internal, reference_external, association_with, text]
                 
-                with open(data_file, 'a', encoding="utf-8", newline='') as object:
+                with open(data_file,'a',encoding = "utf-8",newline = '') as object:
                     write_object = writer(object)
                     write_object.writerow(data_entry)
                     object.close() 

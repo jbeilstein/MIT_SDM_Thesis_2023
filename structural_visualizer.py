@@ -11,25 +11,27 @@ dataframe = pd.read_csv(data_file,sep=',')
 tree = dataframe.loc[(dataframe['logical_shall'] == True) | (dataframe['logical_should'] == True) | dataframe['associated_with'].str.len() > 0 ]
 
 network = nx.from_pandas_edgelist(tree, 
-                                  source='child_of', 
-                                  target='id_num')
-labels = {}
-color = []
+                                  source = 'child_of', 
+                                  target = 'id_num')
+node_label = []
+node_color = []
 list_associated = tree['associated_with'].unique()
 list_child_of = tree['child_of'].unique()
 
 for node in network:
     # if isinstance(node,list) == True:
+    node_label.append(node)
     if node in list_associated:
-        color.append('red')
+        node_color.append('red')
     elif node in list_child_of:
-        color.append('green')
+        node_color.append('green')
     else:
-        color.append('blue')
+        node_color.append('blue')
         
 nx.draw_kamada_kawai(network,
-                     node_color=color,
-                     node_size=50)
+                     #with_labels = True,
+                     node_color = node_color,
+                     node_size = 50)
 graph = plot.savefig('requirements_network.jpg')
 
 print(graph)
@@ -42,11 +44,19 @@ ontology_tree = pd.read_csv(data_file,sep=',')
 
 
 ontology_network = nx.from_pandas_edgelist(ontology_tree, 
-                                            source='component_id', 
-                                            target='parent_id')
+                                            source = 'component_id', 
+                                            target = 'parent_id')
 
+node_label = []
+node_color = []
+
+for node in ontology_network:
+    # if isinstance(node,list) == True:
+    node_label.append(node)
+        
 nx.draw_kamada_kawai(ontology_network,
-                        node_size=50)
+                     with_labels = True,
+                     node_size = 50)
 ontology_graph = plot.savefig('ontology_network.jpg')
 
 print(ontology_graph)
