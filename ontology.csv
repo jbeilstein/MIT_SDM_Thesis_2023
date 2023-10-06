@@ -1,0 +1,5 @@
+component_id,component_title,parent_id,description,keyword1,keyword2,keyword3
+01,CANSat,,a satellite in a can,satellite,disposable,launched
+02,container,01,a small container to store items,cargo,equipment,enclosed
+03,parachute,01,slows descent,colored,light,deployable
+04,audio_beacon,02,emits a noise to aid recovery,audible,loud,repeating

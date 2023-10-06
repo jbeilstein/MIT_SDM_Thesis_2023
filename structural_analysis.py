@@ -10,10 +10,16 @@ import pandas as pd
 data_file = 'data.csv'
 
 dataframe = pd.read_csv(data_file,sep=',')
-start_hist = dataframe.hist(column='x_start', bins=20)
+
+start_hist = dataframe.hist(column='x_start', bins=50)
 graph = plot.savefig('x_start_histogram.jpg')
-stop_hist = dataframe.hist(column='x_stop', bins=20)
+start_hist = dataframe.hist(column='y_start', bins=100, orientation='horizontal')
+graph = plot.savefig('y_start_histogram.jpg')
+
+stop_hist = dataframe.hist(column='x_stop', bins=50)
 graph = plot.savefig('x_stop_histogram.jpg')
+stop_hist = dataframe.hist(column='y_stop', bins=100, orientation='horizontal')
+graph = plot.savefig('y_stop_histogram.jpg')
 
 for i, row in dataframe.iterrows():
     if row[0] != '' and row[0] != 'id_num' and math.isnan(row[0]) != True:
@@ -22,6 +28,7 @@ for i, row in dataframe.iterrows():
         text = row[15]
         itemized = False
         temp_dataframe = dataframe[dataframe['page_id']==current_page]
+        #This section will go through the dataframe again to compare
         for temp_index, temp_row in temp_dataframe.iterrows():
             temp_id = temp_row[0]
             temp_page = temp_row[1] 
@@ -42,6 +49,7 @@ for i, row in dataframe.iterrows():
                     if current_coord4 == temp_coord4:
                     #This is for top justified formatting
                         current_association = row[9]
+                        #Check if current association exists. If so, append. Else, set association to current value
                         if isinstance(current_association,str) == True:
                             current_association = str(current_association) + "/" + str(temp_id) 
                         else:
@@ -54,4 +62,6 @@ for i, row in dataframe.iterrows():
                         #     temp_association = str(current_id) 
                         # temp_row[14] = temp_association
                         
-dataframe.to_csv('structure.csv')
+dataframe.to_csv('structure.csv', index=False)
+
+

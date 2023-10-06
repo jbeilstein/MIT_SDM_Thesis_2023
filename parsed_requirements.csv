@@ -1,0 +1,535 @@
+id_num,page_id,class_name,x_start,y_start,x_stop,y_stop,logical_shall,logical_should,associated_with,parent_of,sibling_of,child_of,internal_reference,external_reference,text
+20.0,9.0,LTTextBoxHorizontal,549.2999895,638.4343463949999,555.2999895,650.4343463949999,False,False,6.0,,,,,,7
+21.0,9.0,LTTextBoxHorizontal,549.2999895,613.6843463949999,555.2999895,625.6843463949999,False,False,7.0,,,,,,8
+22.0,9.0,LTTextBoxHorizontal,543.2999895,381.43434647,555.2999895,600.934347395,False,False,8.0,,,,,,"8
+11
+11
+11
+11
+12
+13
+13
+14
+16
+17
+17
+20"
+23.0,9.0,LTTextBoxHorizontal,543.2999895,322.18434647,555.2999895,369.184347395,False,False,13.0,,,,,,"21
+21
+21"
+24.0,9.0,LTTextBoxHorizontal,543.2999895,193.9343464700001,555.2999895,309.934347395,False,False,14.0,,,,,,"21
+22
+22
+23
+23
+25
+25"
+25.0,9.0,LTTextBoxHorizontal,543.2999895,100.18434647000004,555.2999895,181.6843473950001,False,False,16.0,,,,,,"27
+27
+27
+27
+28"
+35.0,78.0,LTTextBoxHorizontal,543.2999895,649.18422347,555.2999895,730.18422347,False,False,27.0,,,,,,"29
+29
+30
+30
+31"
+36.0,78.0,LTTextBoxHorizontal,543.2999895,624.934224395,555.2999895,636.934224395,False,False,28.0,,,,,,32
+37.0,78.0,LTTextBoxHorizontal,543.2999895,600.184224395,555.2999895,612.184224395,False,False,29.0,,,,,,33
+38.0,78.0,LTTextBoxHorizontal,543.2999895,575.434227395,555.2999895,587.434227395,False,False,30.0,,,,,,34
+39.0,78.0,LTTextBoxHorizontal,543.2999895,550.684227395,555.2999895,562.684227395,False,False,31.0,,,,,,36
+40.0,78.0,LTTextBoxHorizontal,543.2999895,525.934227395,555.2999895,537.934227395,False,False,32.0,,,,,,37
+41.0,78.0,LTTextBoxHorizontal,543.2999895,501.184227395,555.2999895,513.184227395,False,False,33.0,,,,,,39
+42.0,78.0,LTTextBoxHorizontal,543.2999895,476.434227395,555.2999895,488.434227395,False,False,34.0,,,,,,40
+46.0,104.0,LTTextBoxHorizontal,144.450012,682.184102175,202.76837136,694.184102175,False,False,45.0,,,,,,Initial guide
+48.0,104.0,LTTextBoxHorizontal,326.44513199999994,703.184102175,370.4548976399999,715.184102175,False,False,44.0,,,,,,Changes
+50.0,104.0,LTTextBoxHorizontal,144.450012,661.184102175,290.40118416,673.184102175,False,False,49.0,,,,,,Corrected dates in appendix G
+58.0,107.0,LTTextBoxHorizontal,56.699997,289.986831535,549.8777343000002,344.736831535,True,False,,,,,,,"Phase one is the application phase. Teams must submit an application and a $200
+competition fee that is non-refundable. The fee is used to offset the cost of rocket motors and
+other materials. Applications must be submitted by October 30, 2022. Payments will be
+requested in early November and must be paid by the given due date."
+64.0,110.0,LTTextBoxHorizontal,56.699997,578.7368315350001,552.0808551600002,676.2368365350001,True,False,,,,,,,"Phase four is the launch weekend. Friday, teams will be scheduled to present their completed
+CanSat for flight readiness review which must be completed in 30 minutes. The CanSat must
+be ready to launch at this time. It must be completely assembled and operational. Each team
+will be scored during the flight readiness review. Teams can only present once at the flight
+readiness review at their designated time. Teams late for the review will lose points. CanSats
+must pass the drop test, fit check, and battery verification in order to fly. Multiple attempts at
+the drop test are allowed until the flight readiness reviews are completed."
+67.0,110.0,LTTextBoxHorizontal,56.699997,407.736831535,550.2527291999999,433.986831535,True,False,,,,,,,"For teams to receive certificates of accomplishment and be considered for awards, they must
+complete all phases of the competition."
+77.0,112.0,LTTextBoxHorizontal,56.699997,484.236831535,546.12187314,553.2368315350001,True,False,,,,,,,"Design a Cansat that shall consist of a container and a probe. The Cansat shall be launched
+to an altitude ranging from 670 meters to 725 meters above the launch site and deployed
+near apogee (peak altitude). Orientation of deployment is not controlled and is very violent
+with large shock forces. The Cansat must survive the forces incurred at launch and
+deployment."
+78.0,112.0,LTTextBoxHorizontal,56.699997,355.986831535,553.00077633,467.736831535,True,False,,,,,,,"Once the Cansat is deployed from the rocket, the Cansat shall descend using a parachute at
+a rate of 15 m/s. At 500 meters, the Cansat shall release a probe that shall open a heat shield
+that will also be used as an aerobraking device with a descent rate of 20 meters/second or
+less. A parachute, streamer, parafoil or similar device shall not be used with the heat shield.
+When the probe reaches 200 meters, the probe shall deploy a parachute and slow the
+descent rate to 5 meters/second. Once the probe has landed, it shall attempt to upright itself
+and raise a flag 500 mm above the probe. A video camera shall be included and point toward
+the ground during descent."
+84.0,114.0,LTTextBoxHorizontal,312.90118199999995,648.4868365350001,386.2488380399999,660.4868365350001,False,False,83.0,,,,,,Requirement
+102.0,114.0,LTTextBoxHorizontal,146.700012,598.9868315350001,547.5867289200002,625.2368365350001,True,False,85.0,,,,,,"Total mass of the CanSat (science probe and container) shall be 700 grams
++/- 10 grams."
+103.0,114.0,LTTextBoxHorizontal,146.700012,549.4868315350001,548.7175887900001,589.9868315350001,True,False,86.0,,,,,,"CanSat shall fit in a cylindrical envelope of 125 mm diameter x 400 mm
+length. Tolerances are to be included to facilitate container deployment from
+the rocket fairing."
+104.0,114.0,LTTextBoxHorizontal,146.700012,514.2368315350001,544.94415072,540.4868315350001,True,False,87.0,,,,,,"The container shall not have any sharp edges to cause it to get stuck in the
+rocket payload section which is made of cardboard."
+105.0,114.0,LTTextBoxHorizontal,146.700012,493.236831535,476.8875103200001,505.236831535,True,False,88.0,,,,,,"The container shall be a fluorescent color; pink, red or orange."
+106.0,114.0,LTTextBoxHorizontal,146.700012,443.736831535,546.7195466400001,484.236831535,True,False,89.0,,,,,,"The container shall be solid and fully enclose the science probes. Small
+holes to allow access to turn on the science probes are allowed. The end of
+the container where the probe deploys may be open."
+107.0,114.0,LTTextBoxHorizontal,146.700012,408.486831535,548.9226662400001,434.736831535,True,False,90.0,,,,,,"The rocket airframe shall not be used to restrain any deployable parts of the
+CanSat."
+108.0,114.0,LTTextBoxHorizontal,146.700012,387.486831535,524.2429789200002,399.486831535,True,False,91.0,,,,,,The rocket airframe shall not be used as part of the CanSat operations.
+109.0,114.0,LTTextBoxHorizontal,146.700012,337.986831535,550.4988389100001,378.486831535,True,False,92.0,,,,,,"The container’s parachute shall not be enclosed in the container structure. It
+shall be external and attached to the container so that it opens immediately
+when deployed from the rocket."
+110.0,114.0,LTTextBoxHorizontal,146.700012,316.986831535,416.1843858000001,328.986831535,True,False,93.0,,,,,,The Parachute shall be fluorescent Pink or Orange
+111.0,114.0,LTTextBoxHorizontal,146.700012,281.736831535,536.9402444400002,307.986831535,True,False,94.0,,,,,,"The descent rate of the CanSat (container and science probe) shall be 15
+meters/second +/- 5 m/s."
+112.0,114.0,LTTextBoxHorizontal,146.700012,260.736831535,392.8699326000001,272.736831535,True,False,95.0,,,,,,0 altitude reference shall be at the launch pad.
+113.0,114.0,LTTextBoxHorizontal,146.700012,239.736831535,499.5398544,251.736831535,True,False,96.0,,,,,,All structures shall be built to survive 15 Gs of launch acceleration.
+114.0,114.0,LTTextBoxHorizontal,146.700012,218.737321535,427.4871204,230.737321535,True,False,97.0,,,,,,All structures shall be built to survive 30 Gs of shock.
+115.0,114.0,LTTextBoxHorizontal,146.700012,183.487321535,539.3425929000001,209.737321535,True,False,98.0,,,,,,"All electronics and mechanical components shall be hard mounted using
+proper mounts such as standoffs, screws, or high performance adhesives."
+116.0,114.0,LTTextBoxHorizontal,146.700012,148.237321535,546.9129009600001,174.487321535,True,False,99.0,,,,,,"All mechanisms shall be capable of maintaining their configuration or states
+under all forces."
+117.0,114.0,LTTextBoxHorizontal,146.700012,127.237321535,429.48516720000015,139.237321535,True,False,100.0,,,,,,Mechanisms shall not use pyrotechnics or chemicals.
+118.0,114.0,LTTextBoxHorizontal,146.700012,91.987321535,546.2449320000002,118.237321535,True,False,101.0,,,,,,"Mechanisms that use heat (e.g., nichrome wire) shall not be exposed to the
+outside environment to reduce potential risk of setting vegetation on fire."
+138.0,116.0,LTTextBoxHorizontal,146.700012,703.2373245350001,547.6160257200002,729.4873245350001,True,False,120.0,,,,,,"Both the container and probe shall be labeled with team contact information
+including email address."
+139.0,116.0,LTTextBoxHorizontal,146.700012,653.7373245350001,536.2429790400003,694.2373245350001,True,False,121.0,,,,,,"Cost of the CanSat shall be under $1000.  Ground support and analysis
+tools are not included in the cost. Equipment from previous years shall be
+included in this cost, based on current market value."
+140.0,116.0,LTTextBoxHorizontal,146.700012,618.4873245350001,505.97345082,644.7373245350001,True,False,122.0,,,,,,"XBEE radios shall be used for telemetry.  2.4 GHz Series radios are
+allowed. 900 MHz XBEE radios are also allowed."
+141.0,116.0,LTTextBoxHorizontal,146.700012,597.4873215350001,513.29767386,609.4873215350001,True,False,123.0,,,,,,XBEE radios shall have their NETID/PANID set to their team number.
+142.0,116.0,LTTextBoxHorizontal,146.700012,576.4873215350001,378.1629018000001,588.4873215350001,True,False,124.0,,,,,,XBEE radios shall not use broadcast mode.
+143.0,116.0,LTTextBoxHorizontal,146.700012,526.9873215350001,546.9421977600001,567.4873215350001,True,False,125.0,,,,,,"The container and probe shall include an easily accessible power switch
+that can be accessed without disassembling the cansat and science probes
+and in the stowed configuration."
+144.0,116.0,LTTextBoxHorizontal,146.700012,477.487321535,543.60235392,517.987321535,True,False,126.0,,,,,,"The container and probe shall include a power indicator such as an LED or
+sound generating device that can be easily seen or heard without
+disassembling the cansat and in the stowed state."
+145.0,116.0,LTTextBoxHorizontal,146.700012,456.487321535,547.6277443200001,468.487321535,True,False,127.0,,,,,,An audio beacon is required for the probe. It shall be powered after landing.
+146.0,116.0,LTTextBoxHorizontal,146.700012,421.237321535,527.5886821200002,447.487321535,True,False,128.0,,,,,,"The audio beacon shall have a minimum sound pressure level of 92 dB,
+unobstructed."
+147.0,116.0,LTTextBoxHorizontal,146.700012,371.737321535,542.8347762000002,412.237321535,True,False,129.0,,,,,,"Battery source may be alkaline, Ni-Cad, Ni-MH or Lithium. Lithium polymer
+batteries are not allowed. Lithium cells must be manufactured with a metal
+package similar to 18650 cells. Coin cells are allowed."
+148.0,116.0,LTTextBoxHorizontal,146.700012,322.23732153500004,541.5984475200001,362.737321535,True,False,130.0,,,,,,"An easily accessible battery compartment shall be included allowing
+batteries to be installed or removed in less than a minute and not require a
+total disassembly of the CanSat."
+149.0,116.0,LTTextBoxHorizontal,146.700012,286.98732153500004,514.2351667200002,313.23732153500004,True,False,131.0,,,,,,"Spring contacts shall not be used for making electrical connections to
+batteries. Shock forces can cause momentary disconnects."
+150.0,116.0,LTTextBoxHorizontal,146.700012,251.737321535,542.9343852000002,277.98732153500004,True,False,132.0,,,,,,"The Cansat shall operate during the environmental tests laid out in Section
+3.5."
+151.0,116.0,LTTextBoxHorizontal,146.700012,216.487321535,540.2390726400002,242.737321535,True,False,133.0,,,,,,"The Cansat shall operate for a minimum of two hours when integrated into
+the rocket."
+152.0,116.0,LTTextBoxHorizontal,146.700012,181.237321535,536.9343850800001,207.487321535,True,False,134.0,,,,,,"The probe shall be released from the container when the CanSat reaches
+500 meters."
+153.0,116.0,LTTextBoxHorizontal,146.700012,160.237321535,483.59063886,172.237321535,True,False,135.0,,,,,,The probe shall deploy a heat shield after leaving the container.
+154.0,116.0,LTTextBoxHorizontal,146.700012,124.987321535,543.6140725200001,151.237321535,True,False,136.0,,,,,,"The heat shield shall be used as an aerobrake and limit the descent rate to
+20 m/s or less."
+155.0,116.0,LTTextBoxHorizontal,146.700012,89.737321535,534.9421975200001,115.987321535,True,False,137.0,,,,,,"At 200 meters, the probe shall release a parachute to reduce the descent
+rate to 5 m/s +/- 1m/sec."
+176.0,118.0,LTTextBoxHorizontal,146.700012,717.4873245350001,371.50665156,729.4873245350001,True,False,157.0,,,,,,"Once landed, the probe shall upright itself."
+177.0,118.0,LTTextBoxHorizontal,146.700012,682.2373245350001,550.2937599600001,708.4873245350001,True,False,158.0,,,,,,"After uprighting, the probe shall deploy a flag 500 mm above the base of the
+probe."
+178.0,118.0,LTTextBoxHorizontal,146.700012,661.2373245350001,423.5027450400001,673.2373245350001,True,False,159.0,,,,,,The probe shall transmit telemetry once per second.
+179.0,118.0,LTTextBoxHorizontal,146.700012,611.7373245350001,550.94415084,652.2373245350001,True,False,160.0,,,,,,"The probe telemetry shall include altitude, air pressure, temperature, battery
+voltage, probe tilt angles, command echo, and GPS coordinates that include
+latitude, longitude, altitude and number of satellites tracked."
+180.0,118.0,LTTextBoxHorizontal,146.700012,590.7373215350001,510.93633828000014,602.7373215350001,True,False,161.0,,,,,,The probe shall include a video camera pointing down to the ground.
+181.0,118.0,LTTextBoxHorizontal,146.700012,555.4873215350001,507.55547892000016,581.7373215350001,True,False,162.0,,,,,,"The video camera shall record the flight of the probe from release to
+landing."
+182.0,118.0,LTTextBoxHorizontal,146.700012,520.2373215350001,547.5515727600002,546.4873215350001,True,False,163.0,,,,,,"The video camera shall record video in color and with a minimum resolution
+of 640x480."
+183.0,118.0,LTTextBoxHorizontal,146.700012,470.737321535,550.01837298,511.237321535,True,False,164.0,,,,,,"The flight software shall maintain a count of packets transmitted which shall
+increment with each packet transmission throughout the mission.  The value
+shall be maintained through processor resets."
+184.0,118.0,LTTextBoxHorizontal,146.700012,435.487321535,536.9050884000002,461.737321535,True,False,165.0,,,,,,"The probe shall maintain mission time throughout the whole mission even
+with processor resets or momentary power loss."
+185.0,118.0,LTTextBoxHorizontal,146.700012,400.237321535,526.8738385200003,426.487321535,True,False,166.0,,,,,,"The probe shall have its time set to within one second UTC time prior to
+launch."
+186.0,118.0,LTTextBoxHorizontal,146.700012,350.73732153500004,535.6043070000002,391.237321535,True,False,167.0,,,,,,"The probe flight software shall support simulated flight mode where the
+ground station sends air pressure values at a one second interval using a
+provided flight profile csv file."
+187.0,118.0,LTTextBoxHorizontal,146.700012,315.48732153500004,550.2644631600001,341.73732153500004,True,False,168.0,,,,,,"In simulation mode, the flight software shall use the radio uplink pressure
+values in place of the pressure sensor for determining the container altitude."
+188.0,118.0,LTTextBoxHorizontal,146.700012,265.98732153500004,508.87969788000015,306.48732153500004,True,False,169.0,,,,,,"The container flight software shall only enter simulation mode after it
+receives the SIMULATION ENABLE and SIMULATION ACTIVATE
+commands."
+189.0,118.0,LTTextBoxHorizontal,146.700012,230.737321535,552.2625100800001,256.98732153500004,True,False,170.0,,,,,,"The ground station shall command the Cansat to start calibrating the altitude
+to zero when the Cansat is on the launch pad prior to launch."
+190.0,118.0,LTTextBoxHorizontal,146.700012,195.487321535,545.5945414800001,221.737321535,True,False,171.0,,,,,,"The ground station shall generate csv files of all sensor data as specified in
+the Telemetry Requirements section."
+191.0,118.0,LTTextBoxHorizontal,146.700012,174.487321535,538.2175885200002,186.487321535,True,False,172.0,,,,,,Telemetry shall include mission time with 0.01 second or better resolution.
+192.0,118.0,LTTextBoxHorizontal,146.700012,139.237321535,544.2644634000002,165.487321535,True,False,173.0,,,,,,"Configuration states such as zero altitude calibration shall be maintained in
+the event of a processor reset during launch and mission."
+193.0,118.0,LTTextBoxHorizontal,146.700012,118.237321535,412.1941514400001,130.237321535,True,False,174.0,,,,,,Each team shall develop their own ground station.
+194.0,118.0,LTTextBoxHorizontal,146.700012,97.237321535,532.9207134000002,109.237321535,True,False,175.0,,,,,,All telemetry shall be displayed in real time during descent on the ground
+203.0,120.0,LTTextBoxHorizontal,146.700012,682.2373245350001,531.5437604400003,708.4873245350001,True,False,196.0,,,,,,"All telemetry shall be displayed in engineering units (meters, meters/sec,
+Celsius, etc.)"
+204.0,120.0,LTTextBoxHorizontal,146.700012,661.2373245350001,497.5418073600002,673.2373245350001,True,False,197.0,,,,,,Teams shall plot each telemetry data field in real time during flight.
+205.0,120.0,LTTextBoxHorizontal,146.700012,625.9873245350001,550.9148539200003,652.2373245350001,True,False,198.0,,,,,,"The ground station shall include one laptop computer with a minimum of two
+hours of battery operation, XBEE radio and a hand-held antenna."
+206.0,120.0,LTTextBoxHorizontal,146.700012,576.4878115350001,536.28399432,616.9873215350001,True,False,199.0,,,,,,"The ground station must be portable so the team can be positioned at the
+ground station operation site along the flight line. AC power will not be
+available at the ground station operation site."
+207.0,120.0,LTTextBoxHorizontal,146.700012,526.9878115350001,521.5886820000002,567.4878115350001,True,False,200.0,,,,,,"The ground station software shall be able to command the container to
+operate in simulation mode by sending two commands, SIMULATION
+ENABLE and SIMULATION ACTIVATE."
+208.0,120.0,LTTextBoxHorizontal,146.700012,477.487811535,534.9011821200002,517.987811535,True,False,201.0,,,,,,"When in simulation mode, the ground station shall transmit pressure data
+from a csv file provided by the competition at a 1 Hz interval to the
+container."
+212.0,120.0,LTTextBoxHorizontal,56.699997,290.737811535,552.7898441550001,345.487811535,True,False,,,,,,,"A video camera shall be integrated into the container and point toward the probe. The camera
+shall record the event when the probe is released from the container. Video shall be in color
+with a minimum resolution of 640x480 pixels and a minimum of 30 frames per second. The
+video shall be recorded and retrieved when the container is retrieved."
+215.0,120.0,LTTextBoxHorizontal,56.699997,203.737811535,538.9499948399999,229.987811535,True,False,,,,,,,"Upon power up, the CanSat shall collect the required telemetry at a one (1) Hz sample rate
+and transmit the telemetry data to the ground station."
+216.0,120.0,LTTextBoxHorizontal,56.699997,140.73781153500002,532.9441354799999,195.487811535,False,True,,,,,,,"The ASCII format of the telemetry packets are described below.  Each telemetry field is
+delimited by a comma, and each telemetry packet is concluded by a single carriage return
+character.  No comma (‘,’) characters should be part of the data fields -- commas are
+delimiters only."
+229.0,123.0,LTTextBoxHorizontal,92.699997,395.737811535,536.7585929400001,436.237811535,False,True,,,,,,,"ROCKET_SEPARATION, DESCENT, HS_RELEASE, LANDED, etc.).  Teams may
+define their own states.  This should be a human readable description as the judges
+will review it after the launch in the .csv files."
+230.0,123.0,LTTextBoxHorizontal,74.699997,371.487811755,546.6902323800001,383.487811755,True,False,,,,,,,6. ALTITUDE is the altitude in units of meters and must be relative to ground level at the
+231.0,123.0,LTTextBoxHorizontal,92.699997,356.737811535,345.27421482000005,368.737811535,True,False,,,,,,,launch site. The  resolution must be 0.1 meters.
+238.0,123.0,LTTextBoxHorizontal,74.699997,197.487811755,547.53398064,209.487811755,True,False,,,,,,,12. GPS_TIME is the time from the GPS receiver. The time must be reported in UTC and
+248.0,125.0,LTTextBoxHorizontal,92.699997,663.4878125350001,194.76445011,675.4878125350001,True,False,,,,,,,must be an integer.
+252.0,125.0,LTTextBoxHorizontal,74.699997,475.237811535,549.54374532,530.487811755,True,False,,,,,,,"19. [,,OPTIONAL_DATA] are zero or more additional fields the team considers important
+following two commas, which indicates a blank field. This data must follow the same
+format rules (including use of comma characters ‘,’) to facilitate review of the CSV files
+by the judges after the mission."
+256.0,125.0,LTTextBoxHorizontal,56.699997,307.987811535,542.9578071599998,348.487811535,True,True,,,,,,,"The received telemetry for the entire mission shall be saved on the ground station computer
+as comma separated value (.csv) files that will be examined by the competition judges in
+Excel.  The CSV format should be the same as used by export from Excel."
+257.0,125.0,LTTextBoxHorizontal,56.699997,273.487811535,549.7019479049998,299.737811535,True,False,,,,,,,"Teams shall provide the CSV file to the judges immediately after the launch operations
+via USB drive."
+258.0,125.0,LTTextBoxHorizontal,56.699997,238.987811535,542.9871043199997,265.23781153500005,True,False,,,,,,,"The CSV files shall include a header specifying the name of each field/column of data in the
+file."
+259.0,125.0,LTTextBoxHorizontal,56.699997,218.737811535,325.49882400000007,230.737811535,True,False,,,,,,,The telemetry data files shall be named as follows:
+262.0,125.0,LTTextBoxHorizontal,56.699997,115.23781153500002,552.2507763599999,155.73781153500002,True,False,,,,,,,"The ground software shall produce the files, with the correct name, easily from the ground
+system user interface, and save them to the provided USB memory stick, which is to be given
+to judges before leaving the launch area."
+267.0,127.0,LTTextBoxHorizontal,56.699997,623.7378125350001,538.2820261199998,635.7378125350001,True,False,,,,,,,The Container shall receive and process the following commands from the Ground Station:
+300.0,130.0,LTTextBoxHorizontal,92.699997,265.23781153500005,550.2996041999997,306.237811755,False,True,,,,,,,"Note:  commanding during flight is a risky operation as radio links and precise timing
+are unreliable; so, autonomous CanSat flight software operation should be the primary
+mechanism for mission success."
+302.0,130.0,LTTextBoxHorizontal,56.699997,220.987811535,323.51249580000007,232.987811535,True,False,,,,,,,The Cansat Container shall operate in two modes:
+307.0,132.0,LTTextBoxHorizontal,56.699997,688.2378125350001,540.08671752,733.2378125350001,False,True,,,,,,,"Simulation Mode does not affect sensor data other than the barometric pressure sensor.  In
+Simulation Mode, the telemetered pressure sensor data should reflect the commanded
+simulation values, not the actual sensor readings."
+309.0,132.0,LTTextBoxHorizontal,56.699997,539.7378115350001,538.9382762399998,601.2378115350001,True,False,,,,,,,"The team’s Ground Station shall have the capability to read a barometric pressure data file
+that simulates the mission profile and transmit the values via commands to the CanSat at a
+rate of one per second.  The pressure profile data file will be provided by the competition
+judges, and may vary between teams."
+313.0,132.0,LTTextBoxHorizontal,56.699997,275.737811535,550.4636718300001,320.737811535,True,False,,,,,,,"Because accidental initiation of SIMULATION mode can endanger the flight mission, two
+commands, SIM ENABLE and SIM ACTIVATE, must be received by the flight software before
+Simulation mode is activated."
+321.0,134.0,LTTextBoxHorizontal,56.699997,571.9878115350001,551.6472663600001,649.9878125350001,False,True,,,,,,,"Four tests are to be conducted to test the recovery system of the container, the release
+mechanism for releasing the CanSat from the container, Construction quality and material
+performance. To verify test results, teams should provide: 1) Environmental Test Document
+based on the provided template file. 2) Videos of the tests performed as specified in the
+template document. If using a phone camera, orient the phone sideways for wider video view."
+323.0,134.0,LTTextBoxHorizontal,110.699997,357.487811535,554.9460888000001,468.487811535,True,False,,,,,,,"a. Drop Test Description - This test requires a 61 cm non-stretching cord. The test
+was developed with a 1/8 thick kevlar cord. One end is secured to an eyebolt
+attached to a fixed point, such as ceiling or rigid structure with enough clearance
+to accommodate the cord, CANSAT, and free space so the cansat does not hit
+the ground.  The other end is tied to the parachute. A floor mat or pillow may be
+placed under the CanSat for the drop test.. The structure must not flex during
+the drop test."
+327.0,134.0,LTTextBoxHorizontal,164.699997,208.987811535,544.9324171200001,336.487811535,False,False,325.0,,,,,,"Power on CanSat.
+Verify telemetry is being received.
+Raise CanSat by the attached cord, so that the attachment points of the
+cord, on the eye bolt and the parachute, are at the same height.
+Release the CanSat.
+Verify the CanSat did not lose power.
+Inspect for any damage, or detached parts.
+Verify telemetry is still being received."
+337.0,136.0,LTTextBoxHorizontal,164.699997,473.737811535,548.2664049,700.2378125350001,False,False,334.0,,,,,,"The simplest is to acquire an insulating cooler, one or more hair dryers
+and a thermometer, preferably a remote thermometer such as a
+thermocouple or thermistor. Place the CanSat, hair dryer(s) and
+thermometer in the cooler. Try to seal any openings. Make sure the hair
+dryer does not blow directly on the CanSat. The hair dryer will circulate
+and heat the air in the cooler.
+Another method is to build a thermal chamber with foam insulation
+sheets. Select the sheets that have one side with a foil layer. Build a box
+and have one side be a lid. Seal all edges with duct tape. You can make
+a hole in the side to run cords and thermocouple through.
+It is highly suggested the thermistor or thermocouple be attached to the
+CanSat. The purpose is to make sure the CanSat does reach the peak
+temperature. The air will reach the peak temperature long before the
+CanSat does."
+351.0,138.0,LTTextBoxHorizontal,164.699997,556.2378115350001,542.7058594800001,617.7378115350001,True,True,,,,,,,"vise; the CanSat should be secured where the sand-paper is installed.
+The bench vise must be secured to a table. The vise cannot be allowed
+to move freely and the sander cannot be held by hand. The model
+number of the sander must be provided in the documentation."
+358.0,138.0,LTTextBoxHorizontal,164.699997,259.23781153500005,510.2566360800001,304.237811535,False,False,357.0,,,,,,"Suspend the fully configured and powered CanSat in the vacuum
+chamber.
+Turn on the vacuum to start pulling a vacuum."
+372.0,142.0,LTTextBoxHorizontal,56.699997,478.237811535,536.9636662799999,547.2378115350001,True,False,,,,,,,"Each team shall consist of between 3 and 10 students (undergraduate teams) from an
+accredited college or university. Teams may consist entirely of undergraduate students
+(undergraduate teams), entirely of graduate students (grad teams), or a combination of the
+two (mixed teams). Graduate teams shall consist of no more than 5 students. Mixed teams
+shall consist of no more than 7 undergraduate students and 3 graduate students."
+373.0,142.0,LTTextBoxHorizontal,56.699997,406.987811535,543.6023387999999,461.737811535,True,False,,,,,,,"Teams from the same school must develop their designs independently and not copy from
+other teams. Bulk purchasing of materials is allowed such as batteries and raw materials for
+construction. Sharing tools and services are allowed. Designs must originate from within the
+team."
+374.0,142.0,LTTextBoxHorizontal,56.699997,378.487811535,411.44999544000007,390.487811535,True,False,,,,,,,There shall be no more than three teams from any one school.
+376.0,142.0,LTTextBoxHorizontal,56.699997,329.737811535,454.674603675,341.737811535,True,False,,,,,,,Each team must have a faculty advisor. The role of the faculty advisor is to:
+380.0,142.0,LTTextBoxHorizontal,56.699997,244.237811535,208.77421512,256.23781153500005,True,False,,,,,,,The faculty advisor shall not:
+386.0,144.0,LTTextBoxHorizontal,56.699997,649.9878125350001,545.6531196,704.7378125350001,True,False,,,,,,,"The PDR is a “multi-disciplinary technical review to ensure that the system under review can
+proceed into detailed design, and can meet the stated performance requirements within cost
+(program budget), schedule (program schedule), risk, and other system constraints”.  The
+CanSat PDR shall demonstrate:"
+390.0,144.0,LTTextBoxHorizontal,56.699997,407.737811535,554.3191353599998,462.487811535,True,False,,,,,,,"Preliminary design reviews shall be conducted via teleconference coordinated by the team
+lead(s).  The PDR presentations shall be less than 30 minutes in duration including time for
+questions.  Presentation reviewers shall be permitted to ask questions during the presentation
+(i.e., questions are not held until the end of the presentation)."
+391.0,144.0,LTTextBoxHorizontal,56.699997,364.987811535,540.9714794399998,376.987811535,True,False,,,,,,,The PDR shall follow the presentation template posted on the CanSat Competition website.
+393.0,144.0,LTTextBoxHorizontal,56.699997,244.987811535,543.57890088,299.737811535,True,False,,,,,,,"The CDR is “a multi-disciplined technical review to ensure that the system under review can
+proceed into system fabrication, demonstration, and test; and can meet the stated
+performance requirements within cost (program budget), schedule (program schedule), risk,
+and other system constraints”.  The CDR shall demonstrate:"
+394.0,144.0,LTTextBoxHorizontal,74.699997,159.48781153500002,521.582807715,228.487811535,True,False,,,,,,,"● All PDR level requirement TBDs and TBRs shall be resolved
+● Refinement of the CanSat CONOP
+● Results of detailed design and analysis for each subsystem
+● Verification that detailed design meets system and subsystem level requirements
+● Identification of subsystem and system level tests necessary for requirements"
+399.0,146.0,LTTextBoxHorizontal,56.699997,649.9878125350001,554.3191353599998,704.7378125350001,True,False,,,,,,,"Critical design reviews shall be conducted via teleconference coordinated by the team
+lead(s).  The CDR presentations shall be less than 30 minutes in duration including time for
+questions.  Presentation reviewers shall be permitted to ask questions during the presentation
+(i.e., questions are not held until the end of the presentation)."
+400.0,146.0,LTTextBoxHorizontal,56.699997,592.9878115350001,550.9617136799998,633.4878125350001,True,False,,,,,,,"The CDR shall follow the presentation template specified in the ""CanSat CDR Outline""
+document available on the CanSat Competition website.  Extra material in the form of backup
+slides is permitted."
+401.0,146.0,LTTextBoxHorizontal,56.699997,535.9878115350001,550.3289011199997,576.4878115350001,True,False,,,,,,,"Each section of the CDR shall be scored in accordance with the values listed in the outline.
+The CDR shall contribute to the total evaluation of the CanSat design according to the values
+listed the section Evaluation and Scoring."
+403.0,146.0,LTTextBoxHorizontal,56.699997,444.487811535,552.0515631,484.987811535,True,False,,,,,,,"The PFR provides an assessment of flight operations and results of the demonstration flight.
+The PFR provides an assessment of successful and unsuccessful flight operations.  The PFR
+shall provide:"
+405.0,146.0,LTTextBoxHorizontal,56.699997,316.237811535,538.95585456,356.737811535,True,False,,,,,,,"Post Flight Reviews shall be conducted the day following the demonstration flight activities,
+unless flight operations are canceled due to weather.  Presentations shall be limited to 20
+minutes, including questions."
+406.0,146.0,LTTextBoxHorizontal,56.699997,259.23781153500005,548.3308541999997,299.737811535,True,False,,,,,,,"Each section of the PFR shall be scored in accordance with the values listed in the outline.
+The PFR shall contribute to the total evaluation of the CanSat design according to the values
+listed in the section Evaluation and Scoring."
+407.0,146.0,LTTextBoxHorizontal,56.699997,159.48781153500002,554.3308540799998,242.737811535,True,False,,,,,,,"Post Flight Review presentations shall be submitted by 9:30 AM to the judges. There will be
+two presentation rooms. Teams will be preassigned to the presentation room. Late
+submissions will lose points. Each team will be given a thumb drive. Teams are to install their
+PFR slides on the thumb drive and deliver the thumb drive to the designated location between
+9 AM and 9:30 AM Sunday. Teams delivering after 9:30 AM will lose points. This is done to
+make sure all teams have the same amount of time to prepare for PFR."
+409.0,146.0,LTTextBoxHorizontal,56.699997,96.48781153500002,551.4128911800001,108.48781153500002,True,False,,,,,,,All deliverable items shall be submitted to the competition email by the dates listed in Table 1.
+411.0,148.0,LTTextBoxHorizontal,56.699997,649.9878125350001,552.64921314,733.2378125350001,True,False,,,,,,,"All deliverable items shall be submitted in PDF format using the naming convention listed in
+Table 1 where # corresponds to the assigned team number for each team and v# is a unique
+revision number for the review package that can be used to track revisions.  For example, a
+submission for imaginary team number 1000 of version 2 of the PDR package would be
+named cansat2023_1000_pdr_v02.pdf.  Note that adherence to the filename and format
+specification is scored during the competition."
+412.0,148.0,LTTextBoxHorizontal,56.699997,578.7378115350001,540.2449169999999,633.4878125350001,True,False,,,,,,,"If you resubmit your presentation, you must increment the version number otherwise the
+previous version may be used. If so, scoring will reflect the previous version. With a large
+number of submissions and resubmissions, it is not possible to track correctly without using
+the version numbers."
+418.0,148.0,LTTextBoxHorizontal,215.017393,346.987811535,366.38262688,358.987811535,False,False,417.0,,,,,,Required Filename Format
+419.0,148.0,LTTextBoxHorizontal,446.19314425,346.987811535,498.20681593,358.987811535,False,False,417.0/418.0,,,,,,Due Date
+422.0,148.0,LTTextBoxHorizontal,204.745908475,325.987811535,376.654113355,337.987811535,False,False,420.0,,,,,,cansat2023_XXXX_pdr_vYY.pdf
+423.0,148.0,LTTextBoxHorizontal,403.15017535,325.987811535,541.24978399,337.987811535,False,False,420.0/422.0,,,,,,01/27/2023 23:59:59 UTC
+424.0,148.0,LTTextBoxHorizontal,205.0828225,304.987811535,376.31719738,316.987811535,False,False,421.0,,,,,,cansat2023_XXXX_cdr_vYY.pdf
+425.0,148.0,LTTextBoxHorizontal,406.48708975,304.987811535,537.9128703099999,316.987811535,False,False,421.0/424.0,,,,,,04/1/2023 23:59:59 UTC
+428.0,148.0,LTTextBoxHorizontal,195.45001,283.987811535,333.32110363,295.987811535,False,False,426.0,,,,,,cansat2023_xxxx_env.pdf
+429.0,148.0,LTTextBoxHorizontal,406.48708975,283.987811535,537.9128703099999,295.987811535,False,False,426.0/428.0,,,,,,5/26/2023 23:59:59 UTC
+430.0,148.0,LTTextBoxHorizontal,207.9978616,205.987811535,373.40215825,260.73781153500005,False,False,427.0,,,,,,"Flight_XXXX_C.csv for the
+Container Telemetry,
+Flight_XXXX_T.csv for Science
+Payload."
+431.0,148.0,LTTextBoxHorizontal,448.84451125,248.737811535,495.55544845,260.73781153500005,False,False,427.0/430.0,,,,,,06/10/23
+433.0,148.0,LTTextBoxHorizontal,206.41583035,184.987811535,374.98418773,196.987811535,False,False,432.0,,,,,,cansat2023_XXXX_pfr_vYY.pdf
+434.0,148.0,LTTextBoxHorizontal,401.5827925,184.987811535,542.8171668099999,196.987811535,False,False,432.0/433.0,,,,,,06/11/2023 09:30:00 Local
+440.0,151.0,LTTextBoxHorizontal,56.699997,658.2378125350001,490.97929188,670.2378125350001,True,False,,,,,,,The following guidelines shall be used when developing the presentation material:
+441.0,151.0,LTTextBoxHorizontal,74.699997,629.7378125350001,536.0437480800001,655.9878125350001,True,False,,,,,,,"● Use the template made available. Failure to do so will result in loss of points.
+● All slides shall have simple white backgrounds.  This helps reduce the file sizes and"
+443.0,151.0,LTTextBoxHorizontal,74.699997,601.2378115350001,548.71757805,613.2378115350001,True,False,,,,,,,● All slides shall have page numbers in the footer.  This is to allow for easier referencing
+445.0,151.0,LTTextBoxHorizontal,74.699997,572.7378115350001,539.58281076,584.7378115350001,True,False,,,,,,,● All slides shall list the presenter’s name in the footer.  This provides all the reviewers
+447.0,151.0,LTTextBoxHorizontal,74.699997,544.2378115350001,547.604292,556.2378115350001,True,False,,,,,,,● No embedded files or movies shall be included in the presentations.  Not all reviewers
+449.0,151.0,LTTextBoxHorizontal,74.699997,472.987811535,540.7078074599999,513.487811535,True,False,,,,,,,"● Each line-item in the review outlines shall correspond to a dedicated slide.  This may
+result in slides with single bullets on them, however, this makes it easier for the
+reviewers to follow the presentation."
+480.0,155.0,LTTextBoxHorizontal,56.699997,362.737811535,553.65702789,460.237811535,True,False,,,,,,,"Friday, teams are required to have their CanSats inspected for flight worthiness. Each team
+will be assigned a one half hour time slot to present their CanSat. This means the CanSat
+must be completed, built and ready to launch at the flight readiness review. A ball of wires and
+boards does not constitute flight ready. To emphasize, when presented at the Flight
+Readiness Review (FRR), it must be in a state where it can be turned on and placed into a
+rocket for immediate launch and be fully operational. Flight Readiness Review will be
+scored once."
+482.0,155.0,LTTextBoxHorizontal,56.699997,294.487811535,375.5496046800001,306.487811535,True,False,,,,,,,Teams must be prepared to demonstrate the ground station.
+483.0,155.0,LTTextBoxHorizontal,56.699997,237.487811535,544.0593690000001,277.987811535,True,False,,,,,,,"The first test at the FRR will be the drop test. The CanSat must be in flight configuration and
+will be subjected to the drop test. If the test fails, the team must make repairs before being
+allowed to fly. The CanSat must pass the drop test in order to be launched."
+484.0,155.0,LTTextBoxHorizontal,56.699997,180.487811535,526.2761668799997,220.987811535,True,False,,,,,,,"The second test will verify communications with the CanSat and demonstrate the ground
+station software. The ground station software operations will be scored at this time. The
+ground station must show data being plotted in real time."
+489.0,157.0,LTTextBoxHorizontal,56.699997,578.7378115350001,552.5320272000001,633.4878125350001,True,False,,,,,,,"Crew assignments must be submitted at the flight readiness review in the Mission Operations
+Manual.  The mission control officer will be given an identification so the flight coordinator and
+launch control officer knows who the mission control officer is. The missions operations
+manual will be reviewed at the FRR."
+490.0,157.0,LTTextBoxHorizontal,56.699997,535.9878115350001,526.05351222,562.2378115350001,True,False,,,,,,,"Teams must show photos and videos of all environmental tests required. These tests are
+described in Section 3.5"
+492.0,157.0,LTTextBoxHorizontal,56.699997,444.487811535,547.205858085,484.987811535,True,False,,,,,,,"Crew assignments must be submitted at the flight readiness review. The mission control
+officer will be given an identification so the flight coordinator and launch control officer knows
+who the mission control officer is."
+494.0,157.0,LTTextBoxHorizontal,56.699997,344.737811535,542.98124472,385.237811535,True,False,,,,,,,"In order to have a successful launch, teams need to coordinate among themselves and with
+the flight coordinator. Team members need to be assigned to specific tasks and develop a
+checklist for a successful flight. The following task assignments must be delegated:"
+499.0,157.0,LTTextBoxHorizontal,56.699997,88.23781153500002,549.795703635,142.98781153500002,False,True,,,,,,,"Team members can take on multiple roles except for the Mission Control Officer. The Mission
+Control Officer should be coordinating all efforts and interacting with the flight coordinator as
+needed. It is highly recommended that a checklist be developed that steps the crews through
+the preparation, integration, and flight operations."
+501.0,159.0,LTTextBoxHorizontal,56.699997,706.9878125350001,414.86601636,718.9878125350001,True,False,,,,,,,Crew assignments must be submitted at the flight readiness review.
+503.0,159.0,LTTextBoxHorizontal,56.699997,558.4878115350001,550.9792917599998,655.9878125350001,True,True,,,,,,,"Each team is required to assemble a mission operations manual. The mission operations
+manual includes five checklists/operations procedures to be created by the team. The
+checklists are for configuring the ground station, preparing the CanSat, and integrating the
+CanSat into the rocket. The launch preparation procedures, launch procedure, and removal
+procedure are provided. Additional steps can be added by the team. The document is
+available for download and modification. Each section of the mission operations manual must
+start on its own page. Pages should be numbered and a table of contents is to be included."
+504.0,159.0,LTTextBoxHorizontal,56.699997,487.237811535,549.16874619,541.9878115350001,True,False,,,,,,,"The team must have the mission operations manual assembled into a three ring binder. The
+mission control officer must use the manual during launch. The mission control operator shall
+go to the microphone at the launch site and announce their team and go through their launch
+procedure which will include the count down to the launch."
+507.0,159.0,LTTextBoxHorizontal,56.699997,304.237811535,554.9871043199997,401.737811535,True,False,,,,,,,"CanSats must be submitted at the check-in by noon. Only one or two team members must be
+in line with the completed cansat by noon. Teams who submit CanSats after the noon
+deadline will lose 100 points from launch day points. CanSats must be in flight ready condition
+in order to be in line. Teams cannot be in line while working on the CanSat. The CanSat must
+be in the stowed configuration and off when submitted. Teams will be kicked out of the
+check-in line if they are seen working on their CanSat or their CanSat is not fully assembled in
+the stowed configuration."
+508.0,159.0,LTTextBoxHorizontal,56.699997,169.98781153500002,548.3132758799999,295.987811535,True,False,,,,,,,"The launch will start at 1pm and will be done in groups of five. Each team will be assigned a
+round which will be scheduled in one half hour increments. 15 minutes before the launch
+round, the teams assigned to the round shall retrieve their CanSat, turn it on and insert it into
+the rocket payload. CanSats shall not be disassembled at this stage. The CanSat must be
+flight ready and the only thing that can be done to the CanSat is to turn on the CanSat with
+the power switch. Any team that does not launch in their scheduled launch round will lose an
+additional 50 points. Any team that requires to unload their CanSat from the rocket after the
+rocket is mounted on the launch pad will lose an additional 50 points. Any team that requires
+to disassemble their CanSat will lose an additional 100 points."
+509.0,159.0,LTTextBoxHorizontal,56.699997,121.23781153500002,542.3074165199998,161.73781153500002,True,False,,,,,,,"Each team will be given a thumb drive to upload their ground station data after they perform
+their flight operation. The thumb drive must be submitted to the judging table before leaving
+the field."
+512.0,161.0,LTTextBoxHorizontal,56.699997,678.4878125350001,536.28984414,704.7378125350001,True,False,,,,,,,"Details of flight day operations shall be provided at the Pre-Flight Brief.  An overview of the
+flight day operations include the following activities:"
+522.0,161.0,LTTextBoxHorizontal,74.699997,436.237811535,542.9578072799998,448.237811535,True,False,,,,,,,11. Ground station crew must clear out of the ground station area to allow the next round
+524.0,161.0,LTTextBoxHorizontal,74.699997,407.737811535,538.9441354799999,419.737811535,True,False,,,,,,,12. Ground station crew must turn in the thumb drive with any ground station data to the
+526.0,161.0,LTTextBoxHorizontal,74.699997,379.237811535,501.54960456000015,391.237811535,True,False,,,,,,,13. Recovery crew must return to the check-in for any final judging requirements.
+527.0,161.0,LTTextBoxHorizontal,56.699997,336.487811535,532.5984320849998,362.737811535,True,False,,,,,,,"Teams shall not touch the CanSat until the field judge verifies all necessary scoring
+information."
+532.0,161.0,LTTextBoxHorizontal,92.699997,196.237811535,552.2683544399999,250.987811535,False,False,530.0,,,,,,"If the rocket has a catastrophic failure. This includes the motor failing causing the
+rocket to crash or the rocket parachute fails to deploy and crashes with the CanSat still
+inside. This event will require the team to have a working spare CanSat that can be
+prepared and made operational within an hour."
+533.0,161.0,LTTextBoxHorizontal,92.699997,147.48781153500002,551.00858856,187.987811535,False,False,531.0,,,,,,"If the nose cone does not release, keeping the CanSat from deploying and the CanSat
+has passed the fit check. Containers wider than 125mm and still flown will not get a
+second flight."
+539.0,163.0,LTTextBoxHorizontal,56.699997,623.7378125350001,540.3152290799998,664.2378125350001,True,False,,,,,,,"If the Saturday launch gets rained out, Cansat demonstrations shall be performed Saturday
+using the launch schedule. The demonstration will require the drop test followed by the
+simulation demonstration where simulated pressure data is transmitted to the Cansat."
+551.0,165.0,LTTextBoxHorizontal,99.03398175,505.235861535,554.6824169099999,517.2358615349999,True,False,550.0,,,,,,"If a “heads up” launch is announced, you must be standing and facing the launch pad."
+553.0,165.0,LTTextBoxHorizontal,77.699997,464.735861535,497.92265175000006,476.735861535,True,False,,,,,,,8. Everyone must be alert when a “heads up!” is called and be ready to move.
+554.0,165.0,LTTextBoxHorizontal,77.699997,387.485861535,547.7507809200001,456.485861535,False,True,,,,,,,"9. Do not litter. Do not throw trash on the ground anywhere on the field. We have been
+invited to use the land owner's field and should treat it with respect. Any team caught
+throwing trash on the ground anywhere will be disqualified from the competition and
+the school will be notified of the disqualification. The landowner can order the team to
+leave the property and enforce the order."
+560.0,167.0,LTTextBoxHorizontal,74.699997,557.735861535,530.2781204399998,569.735861535,False,True,,,,,,,"2. During the CDR, the Changes Since PDR slides should use a table that contains a"
+563.0,167.0,LTTextBoxHorizontal,92.699997,466.235861535,539.67656145,506.735861535,False,False,562.0,,,,,,"Include the class year (freshman, sophomore, etc.) and major of each team member
+for reference.  This doesn't play into the scoring of the team, however, it is often nice
+for the reviewer to know the status of the team members."
+572.0,169.0,LTTextBoxHorizontal,56.699997,543.485861535,534.9714789599998,569.735861535,True,False,,,,,,,"If a mission does not require a parachute at deployment from the rocket, the nadir pointing
+end of the cansat shall be facing toward the nose cone."
+578.0,174.0,LTTextBoxHorizontal,167.700012,646.3296873104784,204.923770575,656.3296870604785,False,False,576.0,,,,,,Analysis
+579.0,174.0,LTTextBoxHorizontal,167.700012,623.8296873104784,267.693153244458,633.8296870604785,False,False,577.0,,,,,,Critical Design Review
+581.0,174.0,LTTextBoxHorizontal,167.700012,601.3296893104784,267.72157665,611.3296890604785,False,False,580.0,,,,,,Concept of Operations
+587.0,174.0,LTTextBoxHorizontal,167.700012,578.8296893104784,232.70613078596188,588.8296890604785,False,False,582.0,,,,,,Demonstration
+588.0,174.0,LTTextBoxHorizontal,167.700012,556.3296893104784,275.478618391748,566.3296890604785,False,False,583.0,,,,,,Descent Control System
+589.0,174.0,LTTextBoxHorizontal,167.700012,533.8296893104784,277.708782019458,543.8296890604785,False,False,584.0,,,,,,Flight Readiness Review
+590.0,174.0,LTTextBoxHorizontal,167.700012,511.3296893104785,269.94260778596185,521.3296890604785,False,False,585.0,,,,,,Ground Control Station
+591.0,174.0,LTTextBoxHorizontal,167.700012,488.82968931047856,211.0348889609619,498.8296890604785,False,False,586.0,,,,,,Hardware
+593.0,174.0,LTTextBoxHorizontal,167.700012,466.32968931047856,246.588084994458,476.3296890604785,False,False,592.0,,,,,,Hardware Review
+606.0,174.0,LTTextBoxHorizontal,167.700012,443.82968931047856,213.2703549359619,453.8296890604785,False,False,594.0,,,,,,Inspection
+607.0,174.0,LTTextBoxHorizontal,167.700012,421.32968931047856,267.53049466674804,431.3296890604785,False,False,595.0,,,,,,Launch Control Officer
+608.0,174.0,LTTextBoxHorizontal,167.700012,398.82968931047856,287.138679394458,408.8296890604785,False,False,596.0,,,,,,Preliminary Design Review
+609.0,174.0,LTTextBoxHorizontal,167.700012,376.32968931047856,247.1487577109619,386.3296890604785,False,False,597.0,,,,,,Pre Flight Briefing
+610.0,174.0,LTTextBoxHorizontal,167.700012,353.82968931047856,250.478183494458,363.8296890604785,False,False,598.0,,,,,,Post Flight Review
+611.0,174.0,LTTextBoxHorizontal,167.700012,329.82968931047856,271.0456808609619,339.82968906047853,False,False,599.0,,,,,,Revolutions Per Minute
+612.0,174.0,LTTextBoxHorizontal,167.700012,307.32968931047856,260.30674351674804,317.32968906047853,False,False,600.0,,,,,,Range Safety Officer
+613.0,174.0,LTTextBoxHorizontal,167.700012,284.82968931047856,257.17391182499995,294.82968906047853,False,False,601.0,,,,,,Sequence of Events
+614.0,174.0,LTTextBoxHorizontal,167.700012,262.3296893104785,186.033359230542,272.3296890604785,False,False,602.0,,,,,,Test
+615.0,174.0,LTTextBoxHorizontal,167.700012,239.82968931047847,247.7096212109619,249.82968906047847,False,False,603.0,,,,,,To Be Determined
+616.0,174.0,LTTextBoxHorizontal,167.700012,217.32968931047847,237.7135159109619,227.32968906047847,False,False,604.0,,,,,,To Be Resolved
+617.0,174.0,LTTextBoxHorizontal,167.700012,194.82968931047847,252.71765891096183,204.82968906047847,False,False,605.0,,,,,,Verification method
+634.0,176.0,LTTextBoxHorizontal,205.20001,636.5796873104784,517.4972440749998,670.5796870604785,False,False,620.0,,,,,,"Verification method that utilizes evaluation of data generated by
+accepted analytical techniques or simulations under defined conditions
+to show the item will meet the specified requirements."
+635.0,176.0,LTTextBoxHorizontal,205.20001,566.0796893104784,506.9048292055418,624.0796870604785,False,False,621.0,,,,,,"A multi-disciplined technical review to ensure that the system under
+review can proceed into system fabrication, demonstration, and test;
+and can meet the stated performance requirements within cost
+(program budget), schedule (program schedule), risk, and other
+system constraints."
+636.0,176.0,LTTextBoxHorizontal,205.20001,519.5796893104784,516.1735365055418,553.5796890604785,False,True,622.0,,,,,,"Describes what the system will do and the way the system works from
+the operator’s perspective. The CONOP is a high level description that
+should include a top-level block diagram."
+637.0,176.0,LTTextBoxHorizontal,205.20001,473.07968931047856,500.8179686694578,507.0796890604785,False,False,623.0,,,,,,"Verification method that utilizes a qualitative exhibition of functional
+performance, usually accomplished with no or minimal
+instrumentation."
+638.0,176.0,LTTextBoxHorizontal,205.20001,438.57968931047856,503.0147078305418,460.5796890604785,False,False,624.0,,,,,,"Verification method that utilizes an examination of the item against
+applicable documentation to confirm compliance with requirements."
+639.0,176.0,LTTextBoxHorizontal,205.20001,404.07968931047856,513.0168209859619,426.0796890604785,True,False,625.0,,,,,,"Latest date a component or element (software, etc.) must be received
+or completed in order to not impact the end completion date."
+640.0,176.0,LTTextBoxHorizontal,205.20001,345.57968931047856,502.453458941748,391.5796890604785,False,False,626.0,,,,,,"A multi-disciplined technical review to ensure that the system under
+review can proceed into detailed design, and can meet the stated
+performance requirements within cost (program budget), schedule
+(program schedule), risk, and other system constraints."
+641.0,176.0,LTTextBoxHorizontal,205.20001,311.07968931047856,499.1446516749999,333.07968906047853,True,False,627.0,,,,,,"Verb used to indicate a requirement is binding. All shall statements
+require verification."
+642.0,176.0,LTTextBoxHorizontal,205.20001,288.57968931047856,448.5923293555418,298.57968906047853,False,False,628.0,,,,,,Verb used to define a goal or non-mandatory provision.
+643.0,176.0,LTTextBoxHorizontal,205.20001,242.07968931047847,504.142286516748,276.0796890604785,False,False,629.0,,,,,,"Verification method utilizing operation of all or part of the item under
+controlled conditions, either real or simulated, to determine that the
+quantitative design or performance requirements have been met."
+644.0,176.0,LTTextBoxHorizontal,205.20001,207.57968931047847,481.9145948305418,229.57968906047847,False,False,630.0,,,,,,"An item or parameter that has not been specified at the time of
+document release."
+645.0,176.0,LTTextBoxHorizontal,205.20001,161.07968931047847,499.7065868859618,195.07968906047847,False,False,631.0,,,,,,"An item or parameter that is preliminary or uncertain at the time of
+document release and for which a final value is to be specified at a
+later time."
+646.0,176.0,LTTextBoxHorizontal,205.20001,126.57968931047849,502.4154951609617,148.57968906047847,False,False,632.0,,,,,,"Confirms that the system, as built (or as it will be built), satisfies the
+user’s needs. Confirmation you built the right thing."
+647.0,176.0,LTTextBoxHorizontal,205.20001,92.07968931047849,512.9813674194579,114.07968906047849,False,False,633.0,,,,,,"Confirms that the system, its elements, its interfaces, and incremental
+work products satisfy their requirements. Confirmation you built the"
+651.0,178.0,LTTextBoxHorizontal,205.20001,683.8296873104784,515.8279708359618,705.8296870604785,False,False,650.0,,,,,,"Verb used to reference a binding or hard requirement elsewhere in the
+document text."
+672.0,185.0,LTTextBoxHorizontal,336.326967,669.433125175,370.32306072,681.433125175,False,False,671.0,,,,,,Action
+674.0,185.0,LTTextBoxHorizontal,157.200012,643.933125175,297.8601684,655.933125175,False,False,673.0,,,,,,Competition Guide is posted.
+676.0,185.0,LTTextBoxHorizontal,157.200012,618.433125175,297.50860596,630.433125175,False,False,675.0,,,,,,Application is open to teams.
+678.0,185.0,LTTextBoxHorizontal,157.200012,592.933127175,266.18438724,604.933127175,False,False,677.0,,,,,,Applications is closed.
+680.0,185.0,LTTextBoxHorizontal,157.200012,567.433127175,299.50079352,579.433127175,False,False,679.0,,,,,,Application payments closed.
+682.0,185.0,LTTextBoxHorizontal,157.200012,541.933127175,277.217590665,553.933127175,False,False,681.0,,,,,,PDR Time slot selection.
+684.0,185.0,LTTextBoxHorizontal,157.200012,516.433127175,346.52813712,528.433127175,False,False,683.0,,,,,,PDR documents due by 23:59:59 UTC.
+686.0,185.0,LTTextBoxHorizontal,157.200012,490.933127175,249.8601684,502.933127175,False,False,685.0,,,,,,PDR presentations.
+688.0,185.0,LTTextBoxHorizontal,157.200012,465.433127175,426.94219998000005,477.433127175,False,False,687.0,,,,,,Top 48 teams selected. Invitation letters to be requested.
+690.0,185.0,LTTextBoxHorizontal,157.200012,439.933127175,278.547668415,451.933127175,False,False,689.0,,,,,,CDR Time slot selection.
+692.0,185.0,LTTextBoxHorizontal,157.200012,414.433127175,347.85821532,426.433127175,False,False,691.0,,,,,,CDR documents due by 23:59:59 UTC.
+694.0,185.0,LTTextBoxHorizontal,157.200012,388.933127175,251.1902466,400.933127175,False,False,693.0,,,,,,CDR presentations.
+696.0,185.0,LTTextBoxHorizontal,157.200012,363.433127175,250.20001224,375.433127175,False,False,695.0,,,,,,CDR results posed.
+698.0,185.0,LTTextBoxHorizontal,157.200012,337.933127175,277.18829352,349.933127175,False,False,697.0,,,,,,Flight Readiness Review
+700.0,185.0,LTTextBoxHorizontal,157.200012,312.433127175,218.83477776,324.433127175,False,False,699.0,,,,,,Launch Date
+702.0,185.0,LTTextBoxHorizontal,157.200012,286.933127175,289.9910277,298.933127175,False,False,701.0,,,,,,"Post Flight Review, Awards"
