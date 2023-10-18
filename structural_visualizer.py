@@ -46,6 +46,7 @@ for node in network:
             # else:
             #     node_color.append('black')
             
+            ##Use this section if you want to identify functional requirements
             # if dataframe.iloc[int(node)]['functional'] == True:
             #     node_color.append('red')
             # elif dataframe.iloc[int(node)]['non_functional'] == True:
@@ -53,6 +54,7 @@ for node in network:
             # else:
             #     node_color.append('black')
                 
+            ##Use this section if you want to identify non-functional requirements    
             if dataframe.iloc[int(node)]['non_functional'] == True:
                 node_color.append('red')
             else:
