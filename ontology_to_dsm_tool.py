@@ -43,7 +43,7 @@ for entity in data_props:
     entity_reference.append(entity.name)
     current_entity = current_entity + 1
 
-entity_list = 'reference_num,class,' + entity_list + ',description,units,synonyms,sources'    
+entity_list = 'reference_num,class,' + entity_list + ',name,description,units,synonyms,sources'    
 columns = entity_list.split(',')    
 current_entity = 0
 relationship_list = []
@@ -87,17 +87,13 @@ for entity in classes:
     comments = entity.comment[0]
     comments_parsed = comments.split('\\\\')
     
-    description = comments_parsed[0]
-    units = comments_parsed[1]
-    synonyms = comments_parsed[2]
-    sources = comments_parsed[3]
+    entity_name = comments_parsed[0]
+    entity_description = comments_parsed[1]
+    entity_units = comments_parsed[2]
+    entity_synonyms = comments_parsed[3]
+    entity_sources = comments_parsed[4]
     
-    # description = ''
-    # units = ''
-    # synonyms = ''
-    # sources = ''
-    
-    entity_entry = entity_entry + '\\' + description + '\\' + units + '\\' + synonyms + '\\' + sources
+    entity_entry = entity_entry + '\\' + entity_name + '\\' + entity_description + '\\' + entity_units + '\\' + entity_synonyms + '\\' + entity_sources
     relationship_list.append(entity_entry.split('\\'))    
     current_entity = current_entity + 1
 
@@ -116,17 +112,13 @@ for entity in data_props:
     comments = entity.comment[0]
     comments_parsed = comments.split('\\\\')
     
-    description = comments_parsed[0]
-    units = comments_parsed[1]
-    synonyms = comments_parsed[2]
-    sources = comments_parsed[3]
+    entity_name = comments_parsed[0]
+    entity_description = comments_parsed[1]
+    entity_units = comments_parsed[2]
+    entity_synonyms = comments_parsed[3]
+    entity_sources = comments_parsed[4]
     
-    # description = ''
-    # units = ''
-    # synonyms = ''
-    # sources = ''
-    
-    entity_entry = entity_entry + '\\' + description + '\\' + units + '\\' + synonyms + '\\' + sources
+    entity_entry = entity_entry + '\\' + entity_name + '\\' + entity_description + '\\' + entity_units + '\\' + entity_synonyms + '\\' + entity_sources
     relationship_list.append(entity_entry.split('\\'))    
     current_entity = current_entity + 1
             
@@ -143,7 +135,7 @@ ontology_relationships.to_csv('ontology_relationships_one_way.csv', index=False)
 ontology_relationships_two_way = ontology_relationships
 
 for i in ontology_relationships_two_way:
-    if (i != 'reference_num') and (i != 'class') and (i != 'description') and (i != 'units') and (i != 'synonyms') and (i != 'sources'):
+    if (i != 'reference_num') and (i != 'class') and (i != 'name') and (i != 'description') and (i != 'units') and (i != 'synonyms') and (i != 'sources'):
         entity_i_pos = entity_reference.index(i)
         for j in entity_reference:
             entity_j_pos = entity_reference.index(j) + 2
