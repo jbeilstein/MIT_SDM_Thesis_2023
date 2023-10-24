@@ -22,7 +22,7 @@ data_file = 'data2024_final.csv'
 requirements_dataframe = pd.read_csv(data_file,sep=',')
 
 req_ont_pairing = []
-req_ont_pairing_column_names = ['req_id','ont_id','ont_name','spacy similarity','semantic similarity','source']
+req_ont_pairing_column_names = ['req_id','ont_id','ont_name','spacy_similarity','semantic_similarity','source']
 # req_ont_pairing_column_names = ['req_id','ont_id','ont_name','similarity','ontology_association_truth']
 
 req_ont_token_pairing = []
@@ -37,7 +37,7 @@ unwanted_str = '`~1!2@3#4$5%6^7&8*9(0)-_=+[{]}]|\;:\'",<.>/?aAbBcCdDeEfFgGhHiIjJ
 
 current_req_matches = []  
 for req_i, req_row in requirements_dataframe.iterrows():   
-    if req_row['id_num'] != '' and req_row['id_num'] != 'id_num' and math.isnan(req_row['id_num']) != True:
+    if (req_row['id_num'] != '') and (req_row['id_num'] != 'id_num') and (math.isnan(req_row['id_num']) != True) and (req_row['entry_type'] != 'block'):
         # Enable this if you only want to look at functional requirements
 
         # Enable this if you only want to look at non_functional requirements
@@ -151,18 +151,19 @@ for req_i, req_row in requirements_dataframe.iterrows():
                                     current_token_matches.append(req_dsm_token_score)    
                                                                 
             req_ont_token_matches = pd.DataFrame(current_token_matches, columns=req_ont_token_pairing_column_names)
-            best_token_pairs = req_ont_token_matches[req_ont_token_matches['similarity']>=0.1]
+            best_token_pairs = req_ont_token_matches[req_ont_token_matches['similarity']>=0]
             n = best_token_pairs.shape[0]
             for i in range(0,n):
                 req_ont_token_pairing.append(best_token_pairs.iloc[i])                    
                                 
             #This section allows a different set of ontology information to be semantically compared to the req_text
-
+            # The .detach().numpy() technique was from: https://stackoverflow.com/questions/70043645/how-to-convert-from-tensor-to-float.  Written by user
+            # "Borin --help" written 20 November, 2021.  Accessed 23 Oct 2023.
             #This next command allows semantic similarity with just the ontological names
             ont_text = ont_name 
             ont_doc = nlp(ont_text)
             ont_embedding = model.encode(ont_name)
-            semantic_similarity_name = util.cos_sim(req1_embedding, ont_embedding)
+            semantic_similarity_name = float((util.cos_sim(req1_embedding, ont_embedding)).detach().numpy())
             pairing_score = [req_id, ont_id, ont_name, req_doc.similarity(ont_doc),semantic_similarity_name,'ont_name']
             current_req_matches.append(pairing_score)
             
@@ -170,7 +171,7 @@ for req_i, req_row in requirements_dataframe.iterrows():
             ont_text = ont_description 
             ont_doc = nlp(ont_text)
             ont_embedding = model.encode(ont_description)
-            semantic_similarity_description = util.cos_sim(req1_embedding, ont_embedding)
+            semantic_similarity_description = float((util.cos_sim(req1_embedding, ont_embedding)).detach().numpy())
             pairing_score = [req_id, ont_id, 'ont_description', req_doc.similarity(ont_doc),semantic_similarity_description,'ont_description']
             current_req_matches.append(pairing_score)
             
@@ -179,7 +180,7 @@ for req_i, req_row in requirements_dataframe.iterrows():
                 ont_text = ont_units
                 ont_doc = nlp(ont_text)
                 ont_embedding = model.encode(ont_units)
-                semantic_similarity_units = util.cos_sim(req1_embedding, ont_embedding)
+                semantic_similarity_units = float((util.cos_sim(req1_embedding, ont_embedding)).detach().numpy())
                 pairing_score = [req_id, ont_id, ont_text, req_doc.similarity(ont_doc),semantic_similarity_units,'ont_units']
                 current_req_matches.append(pairing_score)
                 
@@ -188,7 +189,7 @@ for req_i, req_row in requirements_dataframe.iterrows():
                 ont_text = ont_synonyms
                 ont_doc = nlp(ont_text)
                 ont_embedding = model.encode(ont_synonyms)
-                semantic_similarity_synonyms = util.cos_sim(req1_embedding, ont_embedding)
+                semantic_similarity_synonyms = float((util.cos_sim(req1_embedding, ont_embedding)).detach().numpy())
                 pairing_score = [req_id, ont_id, ont_text, req_doc.similarity(ont_doc),semantic_similarity_synonyms,'ont_synonyms']
                 current_req_matches.append(pairing_score)
             

@@ -32,7 +32,7 @@ unwanted_str = '`~1!2@3#4$5%6^7&8*9(0)-_=+[{]}]|\;:\'",<.>/?aAbBcCdDeEfFgGhHiIjJ
 current_req_matches = []   
 
 for req_i, req_row in requirements_dataframe.iterrows():
-    if req_row['id_num'] != '' and req_row['id_num'] != 'id_num' and math.isnan(req_row['id_num']) != True:
+    if (req_row['id_num'] != '') and (req_row['id_num'] != 'id_num') and (math.isnan(req_row['id_num']) != True):
         # Enable this if you only want to look at functional requirements
         # if (req_row['functional'] == True):
 
@@ -43,7 +43,7 @@ for req_i, req_row in requirements_dataframe.iterrows():
         # if (req_row['functional'] == True) or (req_row['non_functional'] == True):
     
         # Enable this if you want to look at all entries in the document
-        if (req_row['id_num'] >= 0):
+        if (req_row['id_num'] >= 0) and (req_row['entry_type'] != 'block'):
             req_id = req_row['id_num']   
             req_text = req_row['text']
             req_text = req_text.replace("\n"," ")
@@ -67,7 +67,7 @@ for req_i, req_row in requirements_dataframe.iterrows():
             #     print(token.text, token.lemma, token.pos, token.tag, token.dep_, token.is_alpha, token.is_stop)
             
             for req2_i, req2_row in requirements_dataframe.iterrows():
-                if req2_row['id_num'] != '' and req2_row['id_num'] != req_row['id_num'] and math.isnan(req2_row['id_num']) != True:                    
+                if (req2_row['id_num'] != '') and (req2_row['id_num'] != req_row['id_num']) and (math.isnan(req2_row['id_num']) != True) and (req2_row['entry_type'] != 'block'):                    
                     # Enable this if you only want to look at functional requirements
                     # if (req_row['functional'] == True) and (req2_i > req_i):
 
@@ -96,7 +96,7 @@ for req_i, req_row in requirements_dataframe.iterrows():
                                             current_token_matches.append(req_dsm_token_score)
                                             
                         req_dsm_token_matches = pd.DataFrame(current_token_matches, columns=req_dsm_token_pairing_column_names)
-                        best_token_pairs = req_dsm_token_matches[req_dsm_token_matches['similarity']>=0.1]
+                        best_token_pairs = req_dsm_token_matches[req_dsm_token_matches['similarity']>=0]
                         n = best_token_pairs.shape[0]
                         for i in range(0,n):
                             req_dsm_token_pairing.append(best_token_pairs.iloc[i])                    
@@ -105,7 +105,7 @@ for req_i, req_row in requirements_dataframe.iterrows():
                                                 
                         req1_embedding = model.encode(req_text)
                         req2_embedding = model.encode(req2_text)
-                        semantic_similarity = util.cos_sim(req1_embedding, req2_embedding)
+                        semantic_similarity = float((util.cos_sim(req1_embedding, req2_embedding)).detach().numpy())                       
                         
                         pairing_score = [req_id, req2_id, req_text, req2_text, semantic_similarity]
                         print(pairing_score)
