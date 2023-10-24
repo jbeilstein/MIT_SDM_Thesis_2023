@@ -17,26 +17,29 @@ data_file = 'req_to_ont_comparison.csv'
 
 req_to_ont_semantics_dataframe = pd.read_csv(data_file,sep=',')
 
-data_file = 'req_to_req_pairing_comparison.csv'
-
-req_to_req_semantics_dataframe = pd.read_csv(data_file,sep=',')
-
 req_ont_score_pairing = []
-req_ont_score_pairing_column_names = ['req_id','ont_id','ont_name','name_similarity','name_score','description_similarity','description_score','units_similarity','units_score','synonyms_similarity','synonyms_score']
+req_ont_score_pairing_column_names = ['req_id','ont_id','ont_name','name_similarity','name_score','description_similarity','description_score','units_similarity','units_score','units_max','synonyms_similarity','synonyms_score','synonyms_max']
+
+# This will remove all "block" type text entries
+requirements_dataframe = requirements_dataframe[requirements_dataframe['entry_type'] != 'block']
 
 #This section will iterate through every unique requirement ID and then every paired ontological entity
 for req in req_to_ont_semantics_dataframe['req_id'].unique():
+    
     candidate_pairs = req_to_ont_semantics_dataframe[req_to_ont_semantics_dataframe['req_id'] == req]
-
     for ont in candidate_pairs['ont_id'].unique():
         name_list = []
         name_total = 0
         description_list = []
         description_total = 0
+        units = False
         units_list = []
         units_total = 0
+        units_max = 0
+        snynonyms = False
         synonyms_list = []
         synonyms_total = 0
+        synonyms_max = 0
         for temp_i, temp_pair in candidate_pairs[candidate_pairs['ont_id'] == ont].iterrows():
             if temp_i != 0:
                 #req_id	ont_id	ont_name	spacy similarity	semantic similarity	source
@@ -47,16 +50,23 @@ for req in req_to_ont_semantics_dataframe['req_id'].unique():
                     description_list.append(float(temp_pair['semantic_similarity']))
                     description_total = description_total + temp_pair['semantic_similarity']    
                 elif temp_pair['source'] == 'ont_units':
+                    units = True
                     units_list.append(float(temp_pair['semantic_similarity']))  
                     units_total = units_total + temp_pair['semantic_similarity']   
+                    if (float(temp_pair['semantic_similarity']) > units_max):
+                        units_max = float(temp_pair['semantic_similarity'])
                 elif temp_pair['source'] == 'ont_synonyms':
+                    synonyms = True
                     synonyms_list.append(float(temp_pair['semantic_similarity']))   
-                    synonyms_total = synonyms_total + temp_pair['semantic_similarity']  
-        score_entry = [temp_pair['req_id'], temp_pair['ont_id'], temp_pair['ont_name'], name_list, name_total, description_list, description_total, units_list, units_total, synonyms_list, synonyms_total]
+                    synonyms_total = synonyms_total + temp_pair['semantic_similarity']   
+                    if (float(temp_pair['semantic_similarity']) > synonyms_max):
+                        synonyms_max = float(temp_pair['semantic_similarity']) 
+        
+        score_entry = [temp_pair['req_id'], temp_pair['ont_id'], temp_pair['ont_name'], name_list, name_total, description_list, description_total, units_list, units_total, units_max, synonyms_list, synonyms_total, synonyms_max]
         req_ont_score_pairing.append(score_entry)
                         
 req_ont_token_pairing = pd.DataFrame(req_ont_score_pairing, columns = req_ont_score_pairing_column_names)
-req_ont_token_pairing.to_csv('req_to_ont_semantic_scores.csv', index=False)
+req_ont_token_pairing.to_csv('req_to_ont_semantic_scored.csv', index=False)
 
 ontology_dataframe_columns = list(ont_dataframe.columns)
 num_cols = len(ontology_dataframe_columns)
@@ -110,16 +120,16 @@ for req_i, req_row in requirements_dataframe.iterrows():
                     descriptions = 0
                 description_dsm_entry = description_dsm_entry + ',' + str(descriptions)  
                      
-                units_count = (temp_pairs.units_score != 0).sum()
+                units_count = (temp_pairs.units_max != 0).sum()
                 if units_count != 0:
-                    units = float(temp_pairs.units_score)       
+                    units = float(temp_pairs.units_max)       
                 else:
                     units = 0
                 units_dsm_entry = units_dsm_entry + ',' + str(units) 
                                     
-                synonyms_count = (temp_pairs.synonyms_score != 0).sum()
+                synonyms_count = (temp_pairs.synonyms_max != 0).sum()
                 if synonyms_count != 0:
-                    synonyms = float(temp_pairs.synonyms_score)
+                    synonyms = float(temp_pairs.synonyms_max)
                 else:
                     synonyms = 0
                 synonyms_dsm_entry = synonyms_dsm_entry + ',' + str(synonyms)     
@@ -144,43 +154,43 @@ for req_i, req_row in requirements_dataframe.iterrows():
 
 req_list = req_list.split(',')
 
-##This will save the csv and print the dsm linking requirements to any aspect of an ontology
-req_to_ont_dsm_dataframe = pd.DataFrame(req_to_ont_dsm, columns = req_to_ont_dsm_columns)
-req_to_ont_dsm_dataframe.to_csv('req_to_ont_dsm.csv', index=False) 
+# ##This will save the csv and print the dsm linking requirements to any aspect of an ontology
+# req_to_ont_dsm_dataframe = pd.DataFrame(req_to_ont_dsm, columns = req_to_ont_dsm_columns)
+# req_to_ont_dsm_dataframe.to_csv('req_to_ont_dsm.csv', index=False) 
             
-req_to_ont_dsm_dataframe = req_to_ont_dsm_dataframe.drop('req_id',axis=1)
-req_to_ont_dsm_dataframe = req_to_ont_dsm_dataframe.apply(pd.to_numeric)
+# req_to_ont_dsm_dataframe = req_to_ont_dsm_dataframe.drop('req_id',axis=1)
+# req_to_ont_dsm_dataframe = req_to_ont_dsm_dataframe.apply(pd.to_numeric)
 
-plot.tight_layout()
-figure, axes = plot.subplots(figsize=(15,15))
+# plot.tight_layout()
+# figure, axes = plot.subplots(figsize=(15,15))
 
-axes.matshow(req_to_ont_dsm_dataframe)
-# The follow axes labeling derived from https://stackoverflow.com/questions/49436895/arguments-for-loglocator 
-# authored by user Y.Luo.  Authored 23 Mar 2018.  Accessed 23 Oct 2023.
-axes.set_xticklabels(req_to_ont_dsm_columns[0:(len(req_to_ont_dsm_columns))])
-axes.xaxis.set_major_locator(MultipleLocator(1))
-plot.xticks(rotation=90,fontsize=6)
-axes.set_yticklabels([" "] + req_list)
-axes.yaxis.set_major_locator(MultipleLocator(1))
-plot.yticks(fontsize=6)
-plot.subplots_adjust(bottom=0.00)
+# axes.matshow(req_to_ont_dsm_dataframe)
+# # The follow axes labeling derived from https://stackoverflow.com/questions/49436895/arguments-for-loglocator 
+# # authored by user Y.Luo.  Authored 23 Mar 2018.  Accessed 23 Oct 2023.
+# axes.set_xticklabels(req_to_ont_dsm_columns[0:(len(req_to_ont_dsm_columns))])
+# axes.xaxis.set_major_locator(MultipleLocator(1))
+# plot.xticks(rotation=90,fontsize=6)
+# axes.set_yticklabels([" "] + req_list)
+# axes.yaxis.set_major_locator(MultipleLocator(1))
+# plot.yticks(fontsize=6)
+# plot.subplots_adjust(bottom=0.00)
 
-ontology_dsm = plot.savefig('req_to_ontology_dsm.jpg', dpi=1000)
+# ontology_dsm = plot.savefig('req_to_ontology_dsm.jpg', dpi=1000)
 
-print(ontology_dsm)
-plot.clf()
+# print(ontology_dsm)
+# plot.clf()
 
 ##This will print the dsm linking requirements to ontology names
-req_to_ont_dsm_dataframe = pd.DataFrame(req_to_ont_name_dsm, columns = req_to_ont_dsm_columns)
-req_to_ont_dsm_dataframe.to_csv('req_to_ont_name_dsm.csv', index=False) 
+req_to_ont_dsm_name_dataframe = pd.DataFrame(req_to_ont_name_dsm, columns = req_to_ont_dsm_columns)
+req_to_ont_dsm_name_dataframe.to_csv('req_to_ont_name_dsm.csv', index=False) 
             
-req_to_ont_dsm_dataframe = req_to_ont_dsm_dataframe.drop('req_id',axis=1)
-req_to_ont_dsm_dataframe = req_to_ont_dsm_dataframe.apply(pd.to_numeric)
+req_to_ont_dsm_name_dataframe = req_to_ont_dsm_name_dataframe.drop('req_id',axis=1)
+req_to_ont_dsm_name_dataframe = req_to_ont_dsm_name_dataframe.apply(pd.to_numeric)
 
 plot.tight_layout()
 figure, axes = plot.subplots(figsize=(15,15))
 
-axes.matshow(req_to_ont_dsm_dataframe)
+axes.matshow(req_to_ont_dsm_name_dataframe)
 # axes.imshow(dsm)
 axes.set_xticklabels(req_to_ont_dsm_columns[0:(len(req_to_ont_dsm_columns))])
 axes.xaxis.set_major_locator(MultipleLocator(1))
@@ -196,17 +206,16 @@ print(ontology_name_dsm)
 plot.clf()
 
 ##This will print the dsm linking requirements to ontology descriptions
-req_to_ont_dsm_dataframe = pd.DataFrame(req_to_ont_description_dsm, columns = req_to_ont_dsm_columns)
-req_to_ont_dsm_dataframe.to_csv('req_to_ont_description_dsm.csv', index=False) 
+req_to_ont_description_dsm_dataframe = pd.DataFrame(req_to_ont_description_dsm, columns = req_to_ont_dsm_columns)
+req_to_ont_description_dsm_dataframe.to_csv('req_to_ont_description_dsm.csv', index=False) 
             
-req_to_ont_dsm_dataframe = req_to_ont_dsm_dataframe.drop('req_id',axis=1)
-req_to_ont_dsm_dataframe = req_to_ont_dsm_dataframe.apply(pd.to_numeric)
+req_to_ont_description_dsm_dataframe = req_to_ont_description_dsm_dataframe.drop('req_id',axis=1)
+req_to_ont_description_dsm_dataframe = req_to_ont_description_dsm_dataframe.apply(pd.to_numeric)
 
 plot.tight_layout()
 figure, axes = plot.subplots(figsize=(15,15))
 
-axes.matshow(req_to_ont_dsm_dataframe)
-# axes.imshow(dsm)
+axes.matshow(req_to_ont_description_dsm_dataframe)
 axes.set_xticklabels(req_to_ont_dsm_columns[0:(len(req_to_ont_dsm_columns))])
 axes.xaxis.set_major_locator(MultipleLocator(1))
 plot.xticks(rotation=90,fontsize=6)
@@ -221,17 +230,16 @@ print(ontology_description_dsm)
 plot.clf()
 
 ##This will print the dsm linking requirements to ontology units
-req_to_ont_dsm_dataframe = pd.DataFrame(req_to_ont_units_dsm, columns = req_to_ont_dsm_columns)
-req_to_ont_dsm_dataframe.to_csv('req_to_ont_units_dsm.csv', index=False) 
+req_to_ont_units_dsm_dataframe = pd.DataFrame(req_to_ont_units_dsm, columns = req_to_ont_dsm_columns)
+req_to_ont_units_dsm_dataframe.to_csv('req_to_ont_units_dsm.csv', index=False) 
             
-req_to_ont_dsm_dataframe = req_to_ont_dsm_dataframe.drop('req_id',axis=1)
-req_to_ont_dsm_dataframe = req_to_ont_dsm_dataframe.apply(pd.to_numeric)
+req_to_ont_units_dsm_dataframe = req_to_ont_units_dsm_dataframe.drop('req_id',axis=1)
+req_to_ont_units_dsm_dataframe = req_to_ont_units_dsm_dataframe.apply(pd.to_numeric)
 
 plot.tight_layout()
 figure, axes = plot.subplots(figsize=(15,15))
 
-axes.matshow(req_to_ont_dsm_dataframe)
-# axes.imshow(dsm)
+axes.matshow(req_to_ont_units_dsm_dataframe)
 axes.set_xticklabels(req_to_ont_dsm_columns[0:(len(req_to_ont_dsm_columns))])
 axes.xaxis.set_major_locator(MultipleLocator(1))
 plot.xticks(rotation=90,fontsize=6)
@@ -246,17 +254,16 @@ print(ontology_units_dsm)
 plot.clf()
             
 ##This will print the dsm linking requirements to ontology synonyms
-req_to_ont_dsm_dataframe = pd.DataFrame(req_to_ont_synonyms_dsm, columns = req_to_ont_dsm_columns)
-req_to_ont_dsm_dataframe.to_csv('req_to_ont_synonym_dsm.csv', index=False) 
+req_to_ont_synonyms_dsm_dataframe = pd.DataFrame(req_to_ont_synonyms_dsm, columns = req_to_ont_dsm_columns)
+req_to_ont_synonyms_dsm_dataframe.to_csv('req_to_ont_synonym_dsm.csv', index=False) 
             
-req_to_ont_dsm_dataframe = req_to_ont_dsm_dataframe.drop('req_id',axis=1)
-req_to_ont_dsm_dataframe = req_to_ont_dsm_dataframe.apply(pd.to_numeric)
+req_to_ont_synonyms_dsm_dataframe = req_to_ont_synonyms_dsm_dataframe.drop('req_id',axis=1)
+req_to_ont_synonyms_dsm_dataframe = req_to_ont_synonyms_dsm_dataframe.apply(pd.to_numeric)
 
 plot.tight_layout()
 figure, axes = plot.subplots(figsize=(15,15))
 
-axes.matshow(req_to_ont_dsm_dataframe)
-# axes.imshow(dsm)
+axes.matshow(req_to_ont_synonyms_dsm_dataframe)
 axes.set_xticklabels(req_to_ont_dsm_columns[0:(len(req_to_ont_dsm_columns))])
 axes.xaxis.set_major_locator(MultipleLocator(1))
 plot.xticks(rotation=90,fontsize=6)
@@ -269,3 +276,179 @@ ontology_synonym_dsm = plot.savefig('req_to_ontology_synonym_dsm.jpg', dpi=1000)
 
 print(ontology_synonym_dsm)
 plot.clf()
+
+#This section will perform a Min Max Rescaling normalization to aid in later analysis for the ontology's description semantic similarity vs. requirements
+req_to_ont_description_dsm_normalized = req_to_ont_description_dsm_dataframe
+for req_i, req_row in req_to_ont_description_dsm_normalized.iterrows():
+    sum = 0
+    count = 0
+    min = 1
+    max = 0
+    for col in req_to_ont_dsm_columns:
+        if col != 'req_id':
+            if req_row[col] < min:
+                min = req_row[col]
+            if req_row[col] > max:
+                max = req_row[col]
+            sum = sum + req_row[col]
+            count = count + 1  
+    for col in req_to_ont_dsm_columns:
+        if col != 'req_id':
+            # The following is based on a solution found on Stack Overflow at https://stackoverflow.com/questions/13842088/set-value-for-particular-cell-in-pandas-dataframe-using-index
+            # Written by user Dina Taklit on 29 April, 2019.  Accessed 24 Oct 2023
+            req_to_ont_description_dsm_normalized.at[req_i,col] = (req_row[col]-min)/(max-min)
+    
+req_relationships = pd.DataFrame(req_to_ont_description_dsm_normalized, columns = req_to_ont_dsm_columns)
+req_relationships.to_csv('req_to_ont_description_dsm_normalized.csv', index=False)
+
+num_classes = len(req_list)
+dsm_matrix = req_relationships[req_relationships.columns[1:(num_classes+1)][0:(num_classes)]]
+
+dsm = pd.DataFrame(dsm_matrix)
+dsm = dsm.apply(pd.to_numeric)
+
+plot.tight_layout()
+figure, axes = plot.subplots(figsize=(10,10))
+
+axes.matshow(dsm)
+axes.set_xticklabels(req_to_ont_dsm_columns[0:(len(req_to_ont_dsm_columns))])
+axes.xaxis.set_major_locator(MultipleLocator(1))
+plot.xticks(rotation=90,fontsize=6)
+axes.set_yticklabels([" "] + req_list)
+axes.yaxis.set_major_locator(MultipleLocator(1))
+plot.yticks(fontsize=6)
+plot.subplots_adjust(bottom=0.00)
+
+ontology_dsm = plot.savefig('req_to_ontology_description_dsm_normalized.jpg', dpi=1000)
+
+#This section will perform a Min Max Rescaling normalization to aid in later analysis for the ontology's name semantic similarity vs. requirements
+req_to_ont_name_dsm_normalized = req_to_ont_dsm_name_dataframe
+for req_i, req_row in req_to_ont_name_dsm_normalized.iterrows():
+    sum = 0
+    count = 0
+    min = 1
+    max = 0
+    for col in req_to_ont_dsm_columns:
+        if col != 'req_id':
+            if req_row[col] < min:
+                min = req_row[col]
+            if req_row[col] > max:
+                max = req_row[col]
+            sum = sum + req_row[col]
+            count = count + 1  
+    for col in req_to_ont_dsm_columns:
+        if col != 'req_id':
+            # The following is based on a solution found on Stack Overflow at https://stackoverflow.com/questions/13842088/set-value-for-particular-cell-in-pandas-dataframe-using-index
+            # Written by user Dina Taklit on 29 April, 2019.  Accessed 24 Oct 2023
+            req_to_ont_name_dsm_normalized.at[req_i,col] = (req_row[col]-min)/(max-min)
+    
+req_relationships = pd.DataFrame(req_to_ont_name_dsm_normalized, columns = req_to_ont_dsm_columns)
+req_relationships.to_csv('req_to_ont_name_dsm_normalized.csv', index=False)
+
+num_classes = len(req_list)
+dsm_matrix = req_relationships[req_relationships.columns[1:(num_classes+1)][0:(num_classes)]]
+
+dsm = pd.DataFrame(dsm_matrix)
+dsm = dsm.apply(pd.to_numeric)
+
+plot.tight_layout()
+figure, axes = plot.subplots(figsize=(10,10))
+
+axes.matshow(dsm)
+axes.set_xticklabels(req_to_ont_dsm_columns[0:(len(req_to_ont_dsm_columns))])
+axes.xaxis.set_major_locator(MultipleLocator(1))
+plot.xticks(rotation=90,fontsize=6)
+axes.set_yticklabels([" "] + req_list)
+axes.yaxis.set_major_locator(MultipleLocator(1))
+plot.yticks(fontsize=6)
+plot.subplots_adjust(bottom=0.00)
+
+ontology_dsm = plot.savefig('req_to_ontology_name_dsm_normalized.jpg', dpi=1000)
+
+#This section will perform a Min Max Rescaling normalization to aid in later analysis for the ontology's units semantic similarity vs. requirements
+req_to_ont_units_dsm_normalized = req_to_ont_units_dsm_dataframe
+for req_i, req_row in req_to_ont_units_dsm_normalized.iterrows():
+    sum = 0
+    count = 0
+    min = 1
+    max = 0
+    for col in req_to_ont_dsm_columns:
+        if col != 'req_id':
+            if req_row[col] < min:
+                min = req_row[col]
+            if req_row[col] > max:
+                max = req_row[col]
+            sum = sum + req_row[col]
+            count = count + 1  
+    for col in req_to_ont_dsm_columns:
+        if col != 'req_id':
+            # The following is based on a solution found on Stack Overflow at https://stackoverflow.com/questions/13842088/set-value-for-particular-cell-in-pandas-dataframe-using-index
+            # Written by user Dina Taklit on 29 April, 2019.  Accessed 24 Oct 2023
+            req_to_ont_units_dsm_normalized.at[req_i,col] = (req_row[col]-min)/(max-min)
+    
+req_relationships = pd.DataFrame(req_to_ont_units_dsm_normalized, columns = req_to_ont_dsm_columns)
+req_relationships.to_csv('req_to_ont_units_dsm_normalized.csv', index=False)
+
+num_classes = len(req_list)
+dsm_matrix = req_relationships[req_relationships.columns[1:(num_classes+1)][0:(num_classes)]]
+
+dsm = pd.DataFrame(dsm_matrix)
+dsm = dsm.apply(pd.to_numeric)
+
+plot.tight_layout()
+figure, axes = plot.subplots(figsize=(10,10))
+
+axes.matshow(dsm)
+axes.set_xticklabels(req_to_ont_dsm_columns[0:(len(req_to_ont_dsm_columns))])
+axes.xaxis.set_major_locator(MultipleLocator(1))
+plot.xticks(rotation=90,fontsize=6)
+axes.set_yticklabels([" "] + req_list)
+axes.yaxis.set_major_locator(MultipleLocator(1))
+plot.yticks(fontsize=6)
+plot.subplots_adjust(bottom=0.00)
+
+ontology_dsm = plot.savefig('req_to_ontology_units_dsm_normalized.jpg', dpi=1000)
+
+#This section will perform a Min Max Rescaling normalization to aid in later analysis for the ontology's synonym semantic similarity vs. requirements
+req_to_ont_synonyms_dsm_normalized = req_to_ont_synonyms_dsm_dataframe
+for req_i, req_row in req_to_ont_synonyms_dsm_normalized.iterrows():
+    sum = 0
+    count = 0
+    min = 1
+    max = 0
+    for col in req_to_ont_dsm_columns:
+        if col != 'req_id':
+            if req_row[col] < min:
+                min = req_row[col]
+            if req_row[col] > max:
+                max = req_row[col]
+            sum = sum + req_row[col]
+            count = count + 1  
+    for col in req_to_ont_dsm_columns:
+        if col != 'req_id':
+            # The following is based on a solution found on Stack Overflow at https://stackoverflow.com/questions/13842088/set-value-for-particular-cell-in-pandas-dataframe-using-index
+            # Written by user Dina Taklit on 29 April, 2019.  Accessed 24 Oct 2023
+            req_to_ont_synonyms_dsm_normalized.at[req_i,col] = (req_row[col]-min)/(max-min)
+    
+req_relationships = pd.DataFrame(req_to_ont_synonyms_dsm_normalized, columns = req_to_ont_dsm_columns)
+req_relationships.to_csv('req_to_ont_synonyms_dsm_normalized.csv', index=False)
+
+num_classes = len(req_list)
+dsm_matrix = req_relationships[req_relationships.columns[1:(num_classes+1)][0:(num_classes)]]
+
+dsm = pd.DataFrame(dsm_matrix)
+dsm = dsm.apply(pd.to_numeric)
+
+plot.tight_layout()
+figure, axes = plot.subplots(figsize=(10,10))
+
+axes.matshow(dsm)
+axes.set_xticklabels(req_to_ont_dsm_columns[0:(len(req_to_ont_dsm_columns))])
+axes.xaxis.set_major_locator(MultipleLocator(1))
+plot.xticks(rotation=90,fontsize=6)
+axes.set_yticklabels([" "] + req_list)
+axes.yaxis.set_major_locator(MultipleLocator(1))
+plot.yticks(fontsize=6)
+plot.subplots_adjust(bottom=0.00)
+
+ontology_dsm = plot.savefig('req_to_ontology_synonyms_dsm_normalized.jpg', dpi=1000)

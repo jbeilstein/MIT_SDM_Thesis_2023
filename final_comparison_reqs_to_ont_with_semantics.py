@@ -177,21 +177,25 @@ for req_i, req_row in requirements_dataframe.iterrows():
             
             #This next command allows semantic similarity with the ontological names and keywords
             if ont_units_enable == True:
-                ont_text = ont_units
-                ont_doc = nlp(ont_text)
-                ont_embedding = model.encode(ont_units)
-                semantic_similarity_units = float((util.cos_sim(req1_embedding, ont_embedding)).detach().numpy())
-                pairing_score = [req_id, ont_id, ont_text, req_doc.similarity(ont_doc),semantic_similarity_units,'ont_units']
-                current_req_matches.append(pairing_score)
+                temp_list = ont_row['units'].split(',')
+                for i in range(0,len(temp_list)-1):
+                    ont_text = temp_list[i]
+                    ont_doc = nlp(ont_text)
+                    ont_embedding = model.encode(ont_units)
+                    semantic_similarity_units = float((util.cos_sim(req1_embedding, ont_embedding)).detach().numpy())
+                    pairing_score = [req_id, ont_id, ont_text, req_doc.similarity(ont_doc),semantic_similarity_units,'ont_units']
+                    current_req_matches.append(pairing_score)
                 
             #This next command allows semantic similarity with the ontological names, descriptions, and keywords
             if ont_synonyms_enable == True:
-                ont_text = ont_synonyms
-                ont_doc = nlp(ont_text)
-                ont_embedding = model.encode(ont_synonyms)
-                semantic_similarity_synonyms = float((util.cos_sim(req1_embedding, ont_embedding)).detach().numpy())
-                pairing_score = [req_id, ont_id, ont_text, req_doc.similarity(ont_doc),semantic_similarity_synonyms,'ont_synonyms']
-                current_req_matches.append(pairing_score)
+                temp_list = ont_row['synonyms'].split(',')
+                for i in range(0,len(temp_list)-1):
+                    ont_text = temp_list[i]
+                    ont_doc = nlp(ont_text)
+                    ont_embedding = model.encode(ont_synonyms)
+                    semantic_similarity_synonyms = float((util.cos_sim(req1_embedding, ont_embedding)).detach().numpy())
+                    pairing_score = [req_id, ont_id, ont_text, req_doc.similarity(ont_doc),semantic_similarity_synonyms,'ont_synonyms']
+                    current_req_matches.append(pairing_score)
             
             #This section will perform ontology and requirement text semantic similarity
             # ont_doc = nlp(ont_text)
