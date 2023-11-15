@@ -451,6 +451,8 @@ def weighted_pathing_tool():
     data_file = 'req_to_ont_ordered_description_pairing_weights.csv'
     req_to_ont_ordered_description_pairing_weights = pd.read_csv(data_file,sep=',')  
     
+    data_file = 'final_output_req_to_ont_adjacent_pairing.csv'
+    req_to_ont_adjacent_pairing = pd.read_csv(data_file,sep=',')  
     
     #These matrices are ranked from highest to lowest STS for synonyms
     data_file = 'req_to_ont_ordered_synonyms_pairing_names.csv'
@@ -474,16 +476,30 @@ def weighted_pathing_tool():
     for unique_req in unique_requirements:
         unique_dataframe = semantic_pairing_initial_dataframe[semantic_pairing_initial_dataframe['req_id'] == unique_req]
         unique_ontology = unique_dataframe['ont_id'].unique()
+        adjacent_dataframe = req_to_ont_adjacent_pairing[req_to_ont_adjacent_pairing['source_req_id'] == unique_req]
+        adjacent_ontologies = adjacent_dataframe['adjacent_ont_id'].unique()
+        if len(adjacent_ontologies) != 0:
+            for adjacent_ontology in adjacent_ontologies:
+                if adjacent_ontology not in unique_ontology:
+                    unique_ontology = np.append(unique_ontology,adjacent_ontology)
+
         
         node_combinations = []
         if len(unique_ontology) > 1:
             pathing = True
             added_nodes = ''
+            start_index = 0
+            stop_index = 0
             for unique_starting_node in unique_ontology:
+                # start_node = unique_starting_node[0]
+                start_node = unique_starting_node
+                start_index = start_index + 1
                 for unique_ending_node in unique_ontology:
-                    if (unique_starting_node != unique_ending_node):
-                        start_node = unique_starting_node
-                        end_node = unique_ending_node
+                    # end_node = unique_ending_node[0]
+                    end_node = unique_ending_node
+                    stop_index = stop_index + 1
+                    #Only perform one way comparisons against non-self values
+                    if (unique_starting_node != unique_ending_node) and (stop_index > start_index):                       
                         node_combination = str(unique_req) + '\\' + str(start_node) + '\\' + str(end_node)
                         node_combination_reverse = str(unique_req) + '\\' + str(end_node) + '\\' + str(start_node)
                         if (node_combination not in node_combinations) and (node_combination_reverse not in node_combinations):
@@ -498,10 +514,19 @@ def weighted_pathing_tool():
                             current_paths_last_node = [start_node]
                             current_paths_continue = [True]
                             score_dataframe = unique_dataframe[unique_dataframe['ont_id'] == start_node]
-                            current_paths_name = score_dataframe['ontology_part'].unique()
-                            current_paths_name = [current_paths_name[0]]
-                            current_paths_num_nodes = [1]
-                            current_paths_semantic_score = [score_dataframe.iloc[0][3]]
+                            if len(score_dataframe) == 0:
+                                #if you're here then the score came from the adjacent dataframe
+                                score_dataframe = adjacent_dataframe[adjacent_dataframe['adjacent_ont_id'] == start_node]
+                                current_paths_name = score_dataframe['adjacent_ont_name'].unique()
+                                current_paths_name = [current_paths_name[0]]
+                                current_paths_num_nodes = [1]
+                                current_paths_semantic_score = [score_dataframe.iloc[0][7]]
+                            else:
+                                #if you're here then the score came from the original dataframe
+                                current_paths_name = score_dataframe['ontology_part'].unique()
+                                current_paths_name = [current_paths_name[0]]
+                                current_paths_num_nodes = [1]
+                                current_paths_semantic_score = [score_dataframe.iloc[0][3]]
                             # current_paths_semantic_score = [score_dataframe['semantic_similarity_score'].max()]
                             current_paths_semantic_score_interior = [0]
                             next_paths = []
@@ -932,7 +957,9 @@ def weighted_pathing_tool():
                             complete_paths_num_nodes = []   
                             complete_paths_semantic_score = [] 
                             complete_paths_semantic_score_interior = []
-                            complete_paths_source_req = []  
+                            complete_paths_source_req = [] 
+                             
+                stop_index = 0
         else:
             pathing = False
         x=1            

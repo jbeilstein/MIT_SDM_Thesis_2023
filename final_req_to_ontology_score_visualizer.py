@@ -201,16 +201,17 @@ def requirement_to_ontology_score_visualizer(requirement_file_name):
 
     num_nodes = len(req_to_ont_dsm_columns)
     num_reqs = len(req_list)
-
-    axes.matshow(req_to_ont_dsm_name_dataframe)
+    
+    axes.matshow(req_to_ont_dsm_name_dataframe, aspect='auto')
     # axes.imshow(dsm)
     axes.xaxis.set_major_locator(ticker.FixedLocator(range(num_nodes-1)))
     axes.set_xticklabels(req_to_ont_dsm_columns[1:(len(req_to_ont_dsm_columns))])
     plot.xticks(rotation=90,fontsize=6)
     axes.yaxis.set_major_locator(ticker.FixedLocator(range(num_reqs)))
     axes.set_yticklabels(req_list)
-    plot.yticks(fontsize=6)
+    plot.yticks(fontsize=12)
     plot.subplots_adjust(bottom=0.00)
+ 
 
     ontology_name_dsm = plot.savefig('req_to_ontology_name_dsm.jpg', dpi=1000)
 
