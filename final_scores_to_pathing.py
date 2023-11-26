@@ -313,7 +313,7 @@ def adjacent_node_recommender(requirement_file_name, initial_semantic_threshold,
     req_to_ont_adjacent_pairing = []
     req_to_ont_adjacent_pairing = []
     ont_identifiers = req_to_ont_dsm_columns
-    req_ont_pairing_column_names = ['source_req_id','source_ont_id','source_ont_name','source_score','source_accuracy','adjacent_ont_id','adjacent_ont_name','adjacent_score','adjacent_accuracy']
+    req_ont_pairing_column_names = ['source_req_id','source_ont_id','source_ont_name','source_score','source_accuracy','adjacent_ont_id','adjacent_ont_name','adjacent_score','adjacent_truth','adjacent_accepted']
 
     semantic_pairing_initial_dataframe = semantic_pairing_initial_dataframe.sort_values(by='semantic_similarity_score',ascending=False)
 
@@ -369,7 +369,15 @@ def adjacent_node_recommender(requirement_file_name, initial_semantic_threshold,
                         adjacent_accuracy = requirements_dataframe[requirements_dataframe['id_num'] == source_req_id][adjacent_ont_name]
                         adjacent_accuracy = adjacent_accuracy.bool()
                         adjacent_score = max(adjacent_ranked_name_weight, adjacent_ranked_description_weight, adjacent_ranked_synonyms_weight)
-                        req_to_ont_pair = [source_req_id, source_ont_id, source_ont_name, source_score, source_accuracy, adjacent_ont_id, adjacent_ont_name, adjacent_score, adjacent_accuracy]
+                        adjacent_accepted = 1
+                        req_to_ont_pair = [source_req_id, source_ont_id, source_ont_name, source_score, source_accuracy, adjacent_ont_id, adjacent_ont_name, adjacent_score, adjacent_accuracy,adjacent_accepted]
+                        req_to_ont_adjacent_pairing.append(req_to_ont_pair)
+                    else:
+                        adjacent_accuracy = requirements_dataframe[requirements_dataframe['id_num'] == source_req_id][adjacent_ont_name]
+                        adjacent_accuracy = adjacent_accuracy.bool()
+                        adjacent_score = max(adjacent_ranked_name_weight, adjacent_ranked_description_weight, adjacent_ranked_synonyms_weight)
+                        adjacent_accepted = 0
+                        req_to_ont_pair = [source_req_id, source_ont_id, source_ont_name, source_score, source_accuracy, adjacent_ont_id, adjacent_ont_name, adjacent_score, adjacent_accuracy,adjacent_accepted]
                         req_to_ont_adjacent_pairing.append(req_to_ont_pair)
             else:
                 for adjacent in adjacent_list:
@@ -412,7 +420,15 @@ def adjacent_node_recommender(requirement_file_name, initial_semantic_threshold,
                             adjacent_accuracy = requirements_dataframe[requirements_dataframe['id_num'] == source_req_id][adjacent_ont_name]
                             adjacent_accuracy = adjacent_accuracy.bool()
                             adjacent_score = max(adjacent_ranked_name_weight, adjacent_ranked_description_weight, adjacent_ranked_synonyms_weight)
-                            req_to_ont_pair = [source_req_id, source_ont_id, source_ont_name, source_score, source_accuracy, adjacent_ont_id, adjacent_ont_name, adjacent_score, adjacent_accuracy]
+                            adjacent_accepted = 1
+                            req_to_ont_pair = [source_req_id, source_ont_id, source_ont_name, source_score, source_accuracy, adjacent_ont_id, adjacent_ont_name, adjacent_score, adjacent_accuracy, adjacent_accepted]
+                            req_to_ont_adjacent_pairing.append(req_to_ont_pair)
+                        else:
+                            adjacent_accuracy = requirements_dataframe[requirements_dataframe['id_num'] == source_req_id][adjacent_ont_name]
+                            adjacent_accuracy = adjacent_accuracy.bool()
+                            adjacent_score = max(adjacent_ranked_name_weight, adjacent_ranked_description_weight, adjacent_ranked_synonyms_weight)
+                            adjacent_accepted = 0
+                            req_to_ont_pair = [source_req_id, source_ont_id, source_ont_name, source_score, source_accuracy, adjacent_ont_id, adjacent_ont_name, adjacent_score, adjacent_accuracy,adjacent_accepted]
                             req_to_ont_adjacent_pairing.append(req_to_ont_pair)
                         
                         #Uncomment this if you want every adjacent node to be added      

@@ -191,10 +191,10 @@ def requirement_result_compiler(requirement_file_name, requirement_of_interest, 
     ont_count = 0
     ont_same_recommended = [] 
     req_recommended_list = []
-    print('Ontologies associated with Requirement ' + str(requirement_of_interest) + ' have high semantic similarity with the following requirements (highest similarity to lowest):')
+    print('Ontology nodes paired with Requirement ' + str(requirement_of_interest) + ' have high semantic similarity with the following requirements (highest similarity to lowest):')
     print(' ')
     for unique_ont in high_similarity_nodes:
-        if ont_count < 3:
+        if ont_count < 5:
             temp_pairing_dataframe = req_to_ont_comparison_dataframe.sort_values(by=['semantic_similarity'], ascending=False)
             ont_id = int(unique_ont[0])
             temp_pairing_dataframe = temp_pairing_dataframe[temp_pairing_dataframe['ont_id'] == ont_id]
@@ -207,13 +207,13 @@ def requirement_result_compiler(requirement_file_name, requirement_of_interest, 
                     ont_name = temp_req_row['ont_name'].values[0]
                     req_text_dataframe = requirements_dataframe[requirements_dataframe['id_num'] == unique_req]
                     req_text = req_text_dataframe['text'].values[0]
-                    ont_same_recommended.append([req_score, req_text, unique_req])
+                    ont_same_recommended.append([req_score, req_text, unique_req, ont_name])
                     # print('Requirement number ' + str(requirement_of_interest) + ' has high semantic similarity score with the ' + str(ont_name) + ' (Node #' + str(ont_id) + '), which has high Semantic Textual Similarity with Requirement '+str(unique_req) +  ' with a STS Score of ' + str(f"{req_score:.7}"))
                     req_recommended_list.append(int(unique_req))
                     req_count = req_count + 1
             ont_count = ont_count + 1
-    ont_same_recommended_dataframe = pd.DataFrame(ont_same_recommended, columns=['similarity_score', 'requirement_text', 'req_id'])
-    ont_same_recommended_dataframe.sort_values(by=['similarity_score'], ascending=False)
+    ont_same_recommended_dataframe = pd.DataFrame(ont_same_recommended, columns=['similarity_score', 'requirement_text', 'requirement_id','node_source_name'])
+    ont_same_recommended_dataframe = ont_same_recommended_dataframe.sort_values(by=['similarity_score'], ascending=False)
     print(ont_same_recommended_dataframe.to_markdown(index=False))
     
     print(' ')    
@@ -290,12 +290,12 @@ def requirement_result_compiler(requirement_file_name, requirement_of_interest, 
                     req_score = temp_req_row['semantic_similarity'].values[0]
                     req_text_dataframe = requirements_dataframe[requirements_dataframe['id_num'] == unique_req]
                     req_text = req_text_dataframe['text'].values[0]
-                    ont_adjacent_recommended.append([req_score, req_text, unique_req, adjacent_node])
+                    ont_adjacent_recommended.append([req_score, req_text, unique_req, adjacent_node, source])
                     adjacent_reqs.append(unique_req)
                     # print('The adjacent node ' + str(adjacent_node) + ' and Requirement ' + str(unique_req) + ' have a relatively high semantic similarity score of ' + str(f"{req_score:.7}"))
                     req_count = req_count + 1
                     
-    ont_adjacent_recommended_dataframe = pd.DataFrame(ont_adjacent_recommended, columns=['similarity_score', 'requirement_text', 'req_id', 'ont_name'])                
+    ont_adjacent_recommended_dataframe = pd.DataFrame(ont_adjacent_recommended, columns=['similarity_score', 'requirement_text', 'req_id', 'node_source_name','adjacent_to_ont_name'])                
     ont_adjacent_recommended_dataframe = ont_adjacent_recommended_dataframe.sort_values(by=['similarity_score'], ascending=False)
     print(ont_adjacent_recommended_dataframe.to_markdown(index=False))
     
@@ -460,7 +460,7 @@ def requirement_result_compiler(requirement_file_name, requirement_of_interest, 
     print(' ')
     print('********************************************************************************************************************************')
     print(' ')
-    print('Associated Ontologies having high semantic similarity with other requirement analysis:')
+    print('Associated Ontology nodes having high semantic similarity with other requirement analysis:')
     for unique_ont in high_similarity_nodes:
         if ont_count < 3:
             temp_pairing_dataframe = req_to_ont_comparison_dataframe.sort_values(by=['semantic_similarity'], ascending=False)
