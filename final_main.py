@@ -78,13 +78,13 @@ else:
     from final_result_compiler import requirement_result_compiler
 
     if analysis_complete == False:
-        # ontology_importer(input_ontology_model)
-        # ontology_mapper
-        # requirement_to_requirement_comparison_tool(input_requirements_document)
-        # requirement_to_ontology_comparison_tool(input_requirements_document)
-        # requirement_to_ontology_score_visualizer(input_requirements_document) #allows the user to see how requirements semantically compare to ontology nodes
-        # requirement_to_requirement_score_visualizer(input_requirements_document) #allows the user to see how requirements semantically compare to each other
-        # adjacent_node_recommender(input_requirements_document, initial_semantic_threshold, reevaluation_semantic_threshold) #Will recommend nodes adjacent to high semantic similarity nodes based on the second semantic threshold
+        ontology_importer(input_ontology_model)
+        ontology_mapper
+        requirement_to_requirement_comparison_tool(input_requirements_document)
+        requirement_to_ontology_comparison_tool(input_requirements_document)
+        requirement_to_ontology_score_visualizer(input_requirements_document) #allows the user to see how requirements semantically compare to ontology nodes
+        requirement_to_requirement_score_visualizer(input_requirements_document) #allows the user to see how requirements semantically compare to each other
+        adjacent_node_recommender(input_requirements_document, initial_semantic_threshold, reevaluation_semantic_threshold) #Will recommend nodes adjacent to high semantic similarity nodes based on the second semantic threshold
         
         ##WARNING: Do not use this with low semantic similarity thresholds (less than 0.40) as computation time required will be extremely high.  If lower semantic thresholds
         #are desired to analyze the other modules, comment out this line.  If pathing is desired at lower semantic thresholds this may need to run over night or on a cluster
